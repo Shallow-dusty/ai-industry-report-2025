@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025-2026 AI 行业全景报告</title>
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --bg-card: #1a1a24;
+            --bg-card-hover: #22223a;
+            --text: #e4e4e7;
+            --text-muted: #9ca3af;
+            --accent: #818cf8;
+            --accent-dim: #6366f180;
+            --border: #2d2d3d;
+            --green: #34d399;
+            --red: #f87171;
+            --yellow: #fbbf24;
+            --blue: #60a5fa;
+            --pink: #f472b6;
+            --orange: #fb923c;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        .hero {
+            position: relative;
+            padding: 80px 20px 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(99,102,241,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(52,211,153,0.06) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite alternate;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
+        .hero h1 {
+            position: relative;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #818cf8, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+        .hero .subtitle { position: relative; color: var(--text-muted); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+        .hero .meta { position: relative; margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .hero .meta span { background: var(--bg-card); padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; color: var(--text-muted); border: 1px solid var(--border); }
+        .toc-nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(15,15,19,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px; overflow-x: auto; white-space: nowrap;
+        }
+        .toc-nav::-webkit-scrollbar { height: 0; }
+        .toc-nav a {
+            display: inline-block; padding: 12px 16px;
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500;
+            transition: color 0.2s; border-bottom: 2px solid transparent;
+        }
+        .toc-nav a:hover, .toc-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .chapter { padding: 50px 0 30px; }
+        .chapter-header { margin-bottom: 30px; padding-bottom: 16px; border-bottom: 2px solid var(--border); }
+        .chapter-header h2 { font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .chapter-num {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--green));
+            color: #fff; font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+        }
+        .section { margin-bottom: 36px; }
+        .section h3 { font-size: 1.15rem; font-weight: 600; color: var(--accent); margin-bottom: 14px; padding-left: 12px; border-left: 3px solid var(--accent); }
+        .section h4 { font-size: 0.95rem; font-weight: 600; color: var(--text); margin: 16px 0 10px; }
+        .table-wrap { overflow-x: auto; margin-bottom: 20px; border-radius: 10px; border: 1px solid var(--border); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        thead { background: var(--bg-card); }
+        th { padding: 10px 14px; text-align: left; font-weight: 600; color: var(--text-muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+        td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: var(--bg-card-hover); }
+        td:first-child { white-space: nowrap; font-weight: 500; }
+        td strong { color: var(--accent); font-weight: 600; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; transition: border-color 0.2s, transform 0.2s; }
+        .card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+        .card h4 { margin: 0 0 8px; font-size: 1rem; color: var(--accent); }
+        .card p { color: var(--text-muted); font-size: 0.88rem; margin: 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+        .stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
+        .stat .value { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat .label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+        .diagram { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; overflow-x: auto; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 0.8rem; line-height: 1.5; color: var(--green); margin-bottom: 24px; }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; }
+        .tag-green { background: rgba(52,211,153,0.15); color: var(--green); }
+        .tag-red { background: rgba(248,113,113,0.15); color: var(--red); }
+        .tag-yellow { background: rgba(251,191,36,0.15); color: var(--yellow); }
+        .tag-pink { background: rgba(244,114,182,0.15); color: var(--pink); }
+        .tag-orange { background: rgba(251,146,60,0.15); color: var(--orange); }
+        .trend-item { display: flex; gap: 14px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; }
+        .trend-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: var(--accent); color: #fff; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+        .trend-content h4 { margin: 0 0 4px; font-size: 0.95rem; }
+        .trend-content p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+        footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.82rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+        .note { background: rgba(99,102,241,0.08); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 20px; font-size: 0.88rem; color: var(--text-muted); }
+        @media (max-width: 768px) {
+            .hero { padding: 50px 16px 40px; }
+            .chapter { padding: 30px 0 20px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid { grid-template-columns: 1fr; }
+            table { font-size: 0.8rem; }
+            th, td { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+<header class="hero">
+    <h1>2025-2026 AI 行业全景报告</h1>
+    <p class="subtitle">覆盖模型发布、架构突破、协议标准、安全法规、现实应用五大维度的深度研究</p>
+    <div class="meta">
+        <span>2025.01 — 2026.02</span>
+        <span>5 个并行研究代理</span>
+        <span>编制于 2026.02.11</span>
+    </div>
+</header>
+<nav class="toc-nav" id="toc">
+    <a href="#ch1">模型发布</a>
+    <a href="#ch2">架构与学术</a>
+    <a href="#ch3">协议与标准</a>
+    <a href="#ch4">安全与法规</a>
+    <a href="#ch5">产业格局</a>
+    <a href="#ch6">综合时间线</a>
+    <a href="#ch7">核心趋势</a>
+</nav>
+<main class="container">
+
+<div class="chapter" id="ch1">
+<div class="chapter-header"><h2><span class="chapter-num">1</span> 大模型发布全景时间线</h2></div>
+<div class="section">
+<h3>1.1 OpenAI</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>模型</th><th>关键信息</th></tr></thead>
+<tbody>
+<tr><td>2025.01</td><td><strong>Operator</strong></td><td>浏览器自动化 Agent，基于 CUA 模型。WebArena 58.1%，OSWorld 38.1%</td></tr>
+<tr><td>2025.01</td><td><strong>o3-mini</strong></td><td>高效推理模型，对所有 ChatGPT 用户开放（含免费版）</td></tr>
+<tr><td>2025.02</td><td><strong>GPT-4.5 Preview</strong></td><td>代号"Orion"，最后一个非 CoT 模型。7月因 GPT-4.1 取代而弃用</td></tr>
+<tr><td>2025.04</td><td><strong>GPT-4.1 / mini / nano</strong></td><td>三款同发。SWE-bench 比 GPT-4o 高 21.4 百分点；100 万 token 上下文</td></tr>
+<tr><td>2025.04</td><td><strong>o3 &amp; o4-mini</strong></td><td>o3 GPQA Diamond 87.7%；o4-mini AIME 2025 99.5%</td></tr>
+<tr><td>2025.05</td><td><strong>Codex (codex-1)</strong></td><td>AI 编码 Agent，基于 o3 优化。沙盒云环境</td></tr>
+<tr><td>2025.05</td><td><strong>Sora 2</strong></td><td>视频+同步音频生成。API 开放 v1/videos 端点</td></tr>
+<tr><td>2025.06</td><td><strong>o3-pro</strong></td><td>"最可靠模型"，AIME 2024 超越 Gemini 2.5 Pro</td></tr>
+<tr><td>2025.08</td><td><strong>GPT-5 / GPT-5 Pro</strong></td><td>AIME 2025 94.6%，SWE-bench 74.9%，幻觉率降 6 倍</td></tr>
+<tr><td>2025.11</td><td><strong>GPT-5.1</strong></td><td>新增购物研究、8 种可定制个性风格</td></tr>
+<tr><td>2025.12</td><td><strong>GPT-5.2 / Pro</strong></td><td>因 Gemini 3 发布加速推出。财务建模增强</td></tr>
+<tr><td>2025.12</td><td><strong>GPT-5.2-Codex</strong></td><td>旗舰编码模型，新增 Windows 环境</td></tr>
+<tr><td>2026.02</td><td><strong>GPT-5.3-Codex</strong></td><td>结合编码+推理，速度提升 25%。超 100 万开发者</td></tr>
+</tbody>
+</table></div>
+</div>
+
+<div class="section">
+<h3>1.2 Google / DeepMind</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>模型</th><th>关键信息</th></tr></thead>
+<tbody>
+<tr><td>2025.01</td><td><strong>Gemini 2.0 Flash</strong></td><td>成为默认模型。100 万 token 上下文</td></tr>
+<tr><td>2025.02</td><td><strong>Gemini 2.0 Pro / Flash-Lite</strong></td><td>Pro 200 万 token，最强编码；Flash-Lite 最高性价比</td></tr>
+<tr><td>2025.03</td><td><strong>Gemini 2.5 Pro</strong></td><td>首款 thinking model，增强推理</td></tr>
+<tr><td>2025.05</td><td><strong>Veo 3 / Imagen 4 / Lyria 2</strong></td><td>视频+音频/图像/音乐生成三连发</td></tr>
+<tr><td>2025.06</td><td><strong>Gemini 2.5 GA</strong></td><td>2.5 系列正式商用</td></tr>
+<tr><td>2025.11</td><td><strong>Gemini 3 Pro / Deep Think</strong></td><td>20 项基准 19 项领先，HLE 41%，SWE-bench 76.2%</td></tr>
+<tr><td>2025.12</td><td><strong>Gemini 3 Flash</strong></td><td>替代 2.5 Flash 成为默认</td></tr>
+</tbody>
+</table></div>
+</div>
+
+<div class="section">
+<h3>1.3 Anthropic</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>模型</th><th>关键信息</th></tr></thead>
+<tbody>
+<tr><td>2025.02</td><td><strong>Claude 3.7 Sonnet</strong></td><td>业界首款混合推理模型。SWE-bench 62.3%。同时发布 Claude Code 预览版</td></tr>
+<tr><td>2025.05</td><td><strong>Claude Opus 4 &amp; Sonnet 4</strong></td><td>"世界最佳编码模型"。Claude Code 同日 GA</td></tr>
+<tr><td>2025.09</td><td><strong>Claude Sonnet 4.5</strong></td><td>SWE-bench 77.2%，可自主运行 30 小时</td></tr>
+<tr><td>2025.10</td><td><strong>Claude Haiku 4.5</strong></td><td>最快最高性价比，匹配 Sonnet 4 编码</td></tr>
+<tr><td>2025.11</td><td><strong>Claude Opus 4.5</strong></td><td>SWE-bench 80.9%，引入 effort 参数</td></tr>
+<tr><td>2026.01</td><td><strong>Claude Cowork</strong></td><td>面向非技术用户的 GUI Agent（研究预览）</td></tr>
+<tr><td>2026.02</td><td><strong>Claude Opus 4.6</strong></td><td>100 万 token 上下文(beta)。Agent Teams</td></tr>
+</tbody>
+</table></div>
+</div>
+
+<div class="section">
+<h3>1.4 xAI / DeepSeek / Meta</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>模型</th><th>关键信息</th></tr></thead>
+<tbody>
+<tr><td>2025.02</td><td><strong>Grok 3</strong></td><td>Colossus 超算（~20 万 GPU），100 万 token 上下文</td></tr>
+<tr><td>2025.07</td><td><strong>Grok 4 Heavy</strong></td><td>~1.7 万亿参数，AIME'25 95 分，$300/月</td></tr>
+<tr><td>2025.01</td><td><strong>DeepSeek-R1</strong></td><td>671B/37B(MoE)，MIT 开源，$600 万训练成本震动行业</td></tr>
+<tr><td>2025.12</td><td><strong>DeepSeek V3.2</strong></td><td>685B，"GPT-5 级性能"，API $0.28/M。Speciale IOI/IMO 金牌级</td></tr>
+<tr><td>2025.04</td><td><strong>Llama 4 Scout</strong></td><td>109B/17B，<strong>1000 万 token 上下文</strong>（业界最大）</td></tr>
+<tr><td>2025.04</td><td><strong>Llama 4 Maverick</strong></td><td>400B/17B，100 万 token 上下文</td></tr>
+</tbody>
+</table></div>
+</div>
+
+<div class="section">
+<h3>1.5 中国大模型 &amp; Mistral</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>公司</th><th>模型/时间</th><th>关键信息</th></tr></thead>
+<tbody>
+<tr><td><strong>阿里 Qwen</strong></td><td>Qwen3 全系列 (2025.04)</td><td>稠密+稀疏，36 万亿 token，119 种语言。Hugging Face 衍生最多（11.3 万+）</td></tr>
+<tr><td><strong>字节·豆包</strong></td><td>1.8 版 (2025.12)</td><td>日均 token 超 50 万亿，同比增长 10 倍</td></tr>
+<tr><td><strong>百度·文心</strong></td><td>ERNIE-5.0 (2026.01)</td><td>统一全模态+超稀疏 MoE，>2.4T 参数</td></tr>
+<tr><td><strong>腾讯·混元</strong></td><td>HY2.0 (2025.12)</td><td>MoE 406B-A32B，发布三天 1.2 亿次调用</td></tr>
+<tr><td><strong>Kimi</strong></td><td>K2.5 (2026.01)</td><td>32B 激活/1T 总参（业界最大开源总参）</td></tr>
+<tr><td><strong>智谱 GLM</strong></td><td>GLM-4.6V (2025.12)</td><td>多模态 MoE 混合推理开源</td></tr>
+<tr><td><strong>华为盘古</strong></td><td>盘古 5.5 (2025.06)</td><td>旗舰 Ultra 7180 亿参数</td></tr>
+<tr><td><strong>小红书</strong></td><td>dots.llm1 (2025.06)</td><td>1420 亿 MoE，C-Eval 92.2 超越 DeepSeek-V3</td></tr>
+<tr><td><strong>Mistral</strong></td><td>Large 3 (2025.12)</td><td>675B/41B(MoE)，Apache 2.0 开放权重</td></tr>
+</tbody>
+</table></div>
+</div>
+</div>
+
+<div class="chapter" id="ch2">
+<div class="chapter-header"><h2><span class="chapter-num">2</span> 突破性架构与学术进展</h2></div>
+<div class="section">
+<h3>2.1 架构创新</h3>
+<div class="card-grid">
+<div class="card"><h4>MoE 架构全面普及</h4><p>DeepSeek MLA（压缩 KV 缓存）+ 无辅助损失负载均衡。FP8 训练。被 Llama 4、Qwen3、Mistral Large 3、混元、盘古等全面采用。</p></div>
+<div class="card"><h4>Mamba / SSM 混合</h4><p>NVIDIA Nemotron-H 替换 92% 注意力为 Mamba2，吞吐量快 3 倍。微软 Phi-4-mini-flash 吞吐量提升 10 倍。</p></div>
+<div class="card"><h4>RWKV v7 "Goose"</h4><p>动态状态演化 + 广义 Delta 规则。线性时间复杂度、恒定空间，3B 规模达 SOTA。</p></div>
+<div class="card"><h4>扩散语言模型</h4><p>LLaDA (8B)、Block Diffusion (ICLR Oral)、Gemini Diffusion (1479 tok/s，同类 5 倍)。从学术走向商用。</p></div>
+<div class="card"><h4>稀疏注意力 NSA</h4><p>DeepSeek-AI ACL 2025。三分支并行（压缩+选择+滑动），27B 预训练损失低于全注意力。</p></div>
+<div class="card"><h4>推理时扩展</h4><p>2025 最重要范式转变。o3 AIME 91.6%，o4-mini 99.5%，DeepSeek R1 $600 万验证路径有效。</p></div>
+</div>
+</div>
+<div class="section">
+<h3>2.2 训练方法</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>算法/方法</th><th>描述</th></tr></thead>
+<tbody>
+<tr><td><strong>GRPO</strong></td><td>DeepSeek 提出。消除 PPO 中独立评论者模型，内存高效。驱动 R1 训练</td></tr>
+<tr><td><strong>R1-Zero</strong></td><td>完全跳过 SFT，纯 RL 自发产生推理能力（自我验证、反思、纠错）</td></tr>
+<tr><td><strong>REINFORCE++</strong></td><td>2026.02 ProRL V2 训练 SOTA 级 1.5B 推理模型</td></tr>
+<tr><td><strong>ReTool</strong></td><td>"调用工具 vs 继续思考"建模为 RL 决策，AIME-2025 40%→67%</td></tr>
+<tr><td><strong>电路追踪</strong></td><td>Anthropic 追踪模型内部思维路径，已开源。发现跨语言共享概念空间</td></tr>
+</tbody>
+</table></div>
+<p class="note"><strong>范式演进</strong>：RLHF+PPO (2022) → DPO (2023-24) → GRPO/RLVR (2025) → REINFORCE++ (2026)</p>
+</div>
+<div class="section">
+<h3>2.3 硬件突破</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>类别</th><th>产品</th><th>关键参数</th></tr></thead>
+<tbody>
+<tr><td>AI 芯片</td><td><strong>NVIDIA Blackwell Ultra</strong></td><td>15 PFLOPS NVFP4，比 H100 提升 7.5 倍。2025 全年产能售罄</td></tr>
+<tr><td>AI 芯片</td><td><strong>Vera Rubin (2026-27)</strong></td><td>首款自研 CPU，288GB 显存，50 PFLOPS</td></tr>
+<tr><td>量子计算</td><td><strong>Google Willow</strong></td><td>105 量子比特，量子纠错突破（30 年挑战）</td></tr>
+<tr><td>量子计算</td><td><strong>微软 Majorana 1</strong></td><td>全球首个拓扑量子比特，架构可扩展至 100 万量子比特</td></tr>
+<tr><td>光子计算</td><td><strong>Lightmatter</strong></td><td>首个能运行 ResNet/BERT 的光子处理器，65.5 TOPS, 78W</td></tr>
+<tr><td>光子计算</td><td><strong>中国 LightGen</strong></td><td>200 万+光子神经元，比 GPU 快 100 倍以上</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<h3>2.4 World Models</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>项目</th><th>团队</th><th>进展</th></tr></thead>
+<tbody>
+<tr><td><strong>Marble</strong></td><td>Fei-Fei Li / World Labs</td><td>2025.11 首个商用世界模型，文本/图片→3D 环境</td></tr>
+<tr><td><strong>AMI Labs</strong></td><td>Yann LeCun</td><td>2025.12 离开 Meta，基于 JEPA 架构</td></tr>
+<tr><td><strong>Genie 3</strong></td><td>Google DeepMind</td><td>首个实时交互式世界模型，24fps 持久 3D</td></tr>
+<tr><td><strong>Cosmos</strong></td><td>NVIDIA</td><td>物理 AI 平台，2026.01 下载超 200 万次</td></tr>
+</tbody>
+</table></div>
+</div>
+</div>
+
+<div class="chapter" id="ch3">
+<div class="chapter-header"><h2><span class="chapter-num">3</span> 协议与标准生态</h2></div>
+<div class="section">
+<h3>3.1 MCP 完整时间线</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>事件</th></tr></thead>
+<tbody>
+<tr><td>2024.11</td><td>Anthropic 发布 MCP 开放标准</td></tr>
+<tr><td>2025.03</td><td><strong>OpenAI 正式采用 MCP</strong>；规范更新（Streamable HTTP + OAuth 2.1）</td></tr>
+<tr><td>2025.04</td><td>Google 确认 Gemini 支持 MCP；服务器下载量 800 万</td></tr>
+<tr><td>2025.05</td><td>Microsoft/GitHub 加入 MCP 指导委员会；服务器突破 4,000</td></tr>
+<tr><td>2025.06</td><td>规范更新：OAuth 重构 + 结构化工具输出 + Elicitation</td></tr>
+<tr><td>2025.11</td><td><strong>MCP Apps</strong>（Anthropic+OpenAI 合作）；一周年大版本</td></tr>
+<tr><td>2025.12</td><td><strong>MCP 捐赠给 Linux Foundation AAIF</strong></td></tr>
+</tbody>
+</table></div>
+<div class="stats-grid">
+    <div class="stat"><div class="value">9700万+</div><div class="label">SDK 月下载量</div></div>
+    <div class="stat"><div class="value">16,000+</div><div class="label">活跃服务器</div></div>
+    <div class="stat"><div class="value">300+</div><div class="label">MCP 客户端</div></div>
+    <div class="stat"><div class="value">18亿$</div><div class="label">全球市场规模</div></div>
+</div>
+</div>
+<div class="section">
+<h3>3.2 Agent 协议全景</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>协议</th><th>发布方</th><th>时间</th><th>定位</th></tr></thead>
+<tbody>
+<tr><td><strong>A2A</strong></td><td>Google</td><td>2025.04</td><td>Agent 间通信与任务协作。150+ 组织</td></tr>
+<tr><td><strong>ANP</strong></td><td>开源社区</td><td>2025</td><td>Agent 发现与身份验证（W3C DID）</td></tr>
+<tr><td><strong>AG-UI</strong></td><td>CopilotKit</td><td>2025.05</td><td>Agent↔用户交互（事件驱动）</td></tr>
+<tr><td><strong>A2UI</strong></td><td>Google</td><td>2025.12</td><td>声明式生成 UI 描述（安全优先）</td></tr>
+<tr><td><strong>UCP</strong></td><td>Google</td><td>2026.01</td><td>通用商务协议（Shopify/Walmart 联合）</td></tr>
+<tr><td><strong>AP2</strong></td><td>Google</td><td>2025.09</td><td>Agent 支付协议（60+ 组织）</td></tr>
+<tr><td><strong>AGENTS.md</strong></td><td>OpenAI</td><td>2025.08</td><td>AI 编码 Agent 指令规范，60K+ 项目</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<h3>3.3 协议生态分层</h3>
+<div class="diagram"><pre>┌─────────────────────────────────────────────────────────┐
+│                    用户 / 前端应用                        │
+├─────────────────────────────────────────────────────────┤
+│  AG-UI (Agent↔用户)  │  A2UI (生成式 UI)                │
+│  MCP Apps (交互式 UI 扩展)                               │
+├─────────────────────────────────────────────────────────┤
+│                    Agent 编排层                           │
+│  LangGraph │ CrewAI │ MS Agent Framework                │
+│  OpenAI Agents SDK │ Claude Code Skills │ AGENTS.md     │
+├─────────────────────────────────────────────────────────┤
+│                  Agent 间通信                             │
+│  A2A (任务协作，含原 ACP)                                │
+├─────────────────────────────────────────────────────────┤
+│                 Agent ↔ 工具/数据                         │
+│  MCP (上下文协议)                                        │
+├─────────────────────────────────────────────────────────┤
+│                    商业/支付协议                          │
+│  UCP (通用商务) │ AP2 (Agent 支付)                       │
+├─────────────────────────────────────────────────────────┤
+│                    治理 / 基金会                          │
+│  AAIF (MCP+Goose+AGENTS.md) │ LF AI&amp;Data (A2A)         │
+└─────────────────────────────────────────────────────────┘</pre></div>
+</div>
+<div class="section">
+<h3>3.4 AAIF（Agentic AI Foundation）</h3>
+<div class="note">2025.12.09 成立于 Linux Foundation。创始项目：MCP（Anthropic）+ Goose（Block）+ AGENTS.md（OpenAI）。白金会员：Anthropic、Block、OpenAI、AWS、Bloomberg、Cloudflare、Google、Microsoft。</div>
+</div>
+</div>
+
+<div class="chapter" id="ch4">
+<div class="chapter-header"><h2><span class="chapter-num">4</span> 安全、法规、伦理与合规</h2></div>
+<div class="section">
+<h3>4.1 美国联邦 &amp; 州法律</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>事件</th></tr></thead>
+<tbody>
+<tr><td>2025.01</td><td>特朗普撤销拜登 AI 安全行政令，转向"创新优先"</td></tr>
+<tr><td>2025.07</td><td>白宫《美国 AI 行动计划》——"新太空竞赛"</td></tr>
+<tr><td>2025.09</td><td><strong>加州 SB 53</strong> 签署——美国首部州 AI 安全法（2026.01.01 生效）</td></tr>
+<tr><td>2025.12</td><td>特朗普签署联邦优先权行政令，授权挑战州 AI 法律</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<h3>4.2 全球监管</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>地区</th><th>关键政策</th></tr></thead>
+<tbody>
+<tr><td><strong>EU</strong></td><td>AI Act 分阶段：2025.02 禁止不可接受风险；2025.08 GPAI 义务。罚款最高 3500 万欧元或营收 7%</td></tr>
+<tr><td><strong>中国</strong></td><td>AI 内容标识办法（2025.09 生效）；AI 伦理管理办法；新修订网络安全法（2026.01）</td></tr>
+<tr><td><strong>日本</strong></td><td>AI 促进法（2025.09）——"世界上对 AI 最友好的国家"</td></tr>
+<tr><td><strong>韩国</strong></td><td>AI Basic Act（2026.01）——<strong>亚洲首个</strong>综合 AI 框架法</td></tr>
+<tr><td><strong>联合国</strong></td><td>2025.08 决议：建立独立 AI 科学小组 + 全球治理对话</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<h3>4.3 安全事件</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>类别</th><th>事件</th></tr></thead>
+<tbody>
+<tr><td><span class="tag tag-red">Deepfake</span></td><td>Arup 2560 万美元视频会议诈骗；AI 恶意使用报告增长 8 倍</td></tr>
+<tr><td><span class="tag tag-orange">网络攻击</span></td><td>Claude 被用于攻击 17 个组织；Anthropic 拦截大规模攻击</td></tr>
+<tr><td><span class="tag tag-yellow">漏洞</span></td><td>FlipAttack 对 GPT-4o 成功率 ~98%；Prompt Injection OWASP Top 1</td></tr>
+<tr><td><span class="tag tag-pink">版权</span></td><td><strong>Bartz v. Anthropic 15 亿美元和解</strong>；NYT v. OpenAI 2000 万条记录</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<h3>4.4 就业影响</h3>
+<div class="stats-grid">
+    <div class="stat"><div class="value">55,000</div><div class="label">2025 AI 驱动裁员</div></div>
+    <div class="stat"><div class="value">12x</div><div class="label">两年前的倍数</div></div>
+    <div class="stat"><div class="value">55%</div><div class="label">雇主后悔因 AI 裁员</div></div>
+    <div class="stat"><div class="value">40%</div><div class="label">员工担忧 AI 失业</div></div>
+</div>
+</div>
+</div>
+
+<div class="chapter" id="ch5">
+<div class="chapter-header"><h2><span class="chapter-num">5</span> 现实世界应用与产业格局</h2></div>
+<div class="section">
+<h3>5.1 编码 Agent 竞争</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>产品</th><th>用户量</th><th>ARR</th><th>特色</th></tr></thead>
+<tbody>
+<tr><td><strong>GitHub Copilot</strong></td><td>2000万+</td><td>~20 亿$</td><td>微软分发优势，49% 市场份额</td></tr>
+<tr><td><strong>Cursor</strong></td><td>100万+</td><td>5 亿+$</td><td>多 agent 架构，估值 293 亿</td></tr>
+<tr><td><strong>Claude Code</strong></td><td>企业广泛</td><td>~10-20 亿$</td><td>GA→10 亿 ARR 仅 6 个月</td></tr>
+<tr><td><strong>OpenAI Codex</strong></td><td>100万+</td><td>—</td><td>CLI+Web+IDE+桌面全覆盖</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<h3>5.2 产品生态</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>产品</th><th>MAU/WAU</th><th>关键数据</th></tr></thead>
+<tbody>
+<tr><td><strong>ChatGPT</strong></td><td>8-9 亿 WAU</td><td>ARR 100 亿+，份额 86.7%→64.5%</td></tr>
+<tr><td><strong>Gemini</strong></td><td>7.5 亿 MAU</td><td>Q4 单季增长 1 亿</td></tr>
+<tr><td><strong>Meta AI</strong></td><td>~5 亿 MAU</td><td>—</td></tr>
+<tr><td><strong>Qwen App</strong></td><td>3000 万 MAU</td><td>全球增长最快 AI 应用</td></tr>
+<tr><td><strong>Perplexity</strong></td><td>2200 万</td><td>月搜索 7.8 亿次，估值 180 亿</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<h3>5.3 融资与市场</h3>
+<div class="stats-grid">
+    <div class="stat"><div class="value">2023亿$</div><div class="label">2025 全球 AI 投资</div></div>
+    <div class="stat"><div class="value">~50%</div><div class="label">AI 占全球 VC</div></div>
+    <div class="stat"><div class="value">72%</div><div class="label">全球企业 AI 采用率</div></div>
+    <div class="stat"><div class="value">~1万亿$</div><div class="label">三巨头私募合计</div></div>
+</div>
+<div class="table-wrap"><table>
+<thead><tr><th>公司</th><th>金额</th><th>估值</th><th>时间</th></tr></thead>
+<tbody>
+<tr><td><strong>OpenAI F 轮</strong></td><td>400 亿$</td><td>3000→5000 亿$</td><td>2025.04</td></tr>
+<tr><td><strong>Anthropic F 轮</strong></td><td>130 亿$</td><td>1830 亿$</td><td>2025.11</td></tr>
+<tr><td><strong>xAI 多轮</strong></td><td>420 亿+$</td><td>2300 亿$</td><td>2025-26</td></tr>
+<tr><td><strong>Cursor</strong></td><td>23 亿$</td><td>293 亿$</td><td>2025</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<h3>5.4 中美芯片博弈</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>事件</th></tr></thead>
+<tbody>
+<tr><td>2025.01</td><td>拜登 AI 扩散规则：三级国家分类</td></tr>
+<tr><td>2025.04</td><td>H20 对华销售需许可证</td></tr>
+<tr><td>2025.08</td><td>中国反制——推国产芯片</td></tr>
+<tr><td>2025.10</td><td>中美釜山协议：暂停部分限制一年</td></tr>
+<tr><td>2025.12</td><td>摩尔线程上市涨 400%+；沐曦涨 693%</td></tr>
+<tr><td>2026.01</td><td>BIS"逐案审查"；25% 关税生效</td></tr>
+</tbody>
+</table></div>
+</div>
+<div class="section">
+<h3>5.5 行业落地</h3>
+<div class="card-grid">
+<div class="card"><h4>制造业</h4><p>77% 使用 AI，停机时间减少 23%。到 2035 年增加 3.8 万亿 GVA。</p></div>
+<div class="card"><h4>医疗/药物</h4><p>Insilico 首个 AI 全流程药物完成 Phase IIa。压缩早期发现 30-40%。</p></div>
+<div class="card"><h4>天气预报</h4><p>NOAA 3 套 AI 模型，仅需 0.3% 算力，预报延长 18-24 小时。</p></div>
+<div class="card"><h4>人形机器人</h4><p>全球 13K-18K 台，中国份额 ~90%。宇树/智元各超特斯拉目标。</p></div>
+</div>
+</div>
+</div>
+
+<div class="chapter" id="ch6">
+<div class="chapter-header"><h2><span class="chapter-num">6</span> 综合时间线</h2></div>
+<div class="table-wrap"><table>
+<thead><tr><th>时间</th><th>模型/产品</th><th>协议/标准</th><th>安全/法规</th><th>产业/市场</th></tr></thead>
+<tbody>
+<tr><td><strong>2025.01</strong></td><td>DeepSeek-R1；Operator</td><td>—</td><td>拜登芯片管制；特朗普撤令</td><td>NVIDIA -$5930 亿</td></tr>
+<tr><td><strong>2025.02</strong></td><td>GPT-4.5；Claude 3.7；Grok 3</td><td>—</td><td>EU AI Act 第一阶段</td><td>Majorana 1</td></tr>
+<tr><td><strong>2025.03</strong></td><td>Gemini 2.5 Pro</td><td>OpenAI 采用 MCP</td><td>NIST 零草案</td><td>Anthropic 35 亿</td></tr>
+<tr><td><strong>2025.04</strong></td><td>GPT-4.1；o3；Llama 4；Qwen3</td><td>A2A 发布</td><td>H20 需许可</td><td>OpenAI 400 亿</td></tr>
+<tr><td><strong>2025.05</strong></td><td>Claude 4+Code GA；Codex；Veo 3</td><td>AG-UI；MS 加入 MCP</td><td>日本 AI 法</td><td>收购 Windsurf</td></tr>
+<tr><td><strong>2025.06</strong></td><td>o3-pro；Gemini 2.5 GA</td><td>MCP 规范更新</td><td>Bartz 裁定</td><td>Insilico IIa</td></tr>
+<tr><td><strong>2025.08</strong></td><td>GPT-5；DeepSeek V3.1</td><td>ACP→A2A；AGENTS.md</td><td>EU 第二阶段</td><td>Anthropic 50 亿 ARR</td></tr>
+<tr><td><strong>2025.09</strong></td><td>Sonnet 4.5+Code 2.0；Sora 2</td><td>AP2</td><td>SB 53；Bartz 15 亿</td><td>—</td></tr>
+<tr><td><strong>2025.11</strong></td><td>GPT-5.1；Opus 4.5；Gemini 3</td><td>MCP Apps+一周年</td><td>拦截攻击</td><td>Code 10 亿 ARR</td></tr>
+<tr><td><strong>2025.12</strong></td><td>GPT-5.2；V3.2；Mistral 3</td><td>AAIF；A2UI</td><td>联邦优先权令</td><td>摩尔线程上市</td></tr>
+<tr><td><strong>2026.01</strong></td><td>ERNIE-5.0；K2.5；Cowork</td><td>UCP</td><td>SB 53 生效</td><td>Anthropic ~200 亿</td></tr>
+<tr><td><strong>2026.02</strong></td><td><strong>Opus 4.6；GPT-5.3-Codex</strong></td><td>—</td><td>—</td><td>收购 Bun</td></tr>
+</tbody>
+</table></div>
+</div>
+
+<div class="chapter" id="ch7">
+<div class="chapter-header"><h2><span class="chapter-num">7</span> 核心趋势</h2></div>
+<div class="section">
+<h3>八大趋势</h3>
+<div class="trend-item"><div class="trend-num">1</div><div class="trend-content"><h4>效率优先取代暴力扩展</h4><p>DeepSeek 以 $600 万成本证明算法创新可弥补硬件差距</p></div></div>
+<div class="trend-item"><div class="trend-num">2</div><div class="trend-content"><h4>推理模型成为标配</h4><p>几乎所有主流模型都发布"思考"变体，thinking/non-thinking 切换成为标准</p></div></div>
+<div class="trend-item"><div class="trend-num">3</div><div class="trend-content"><h4>Agent 元年</h4><p>Operator、Codex、Claude Code、Copilot Agent Mode 密集发布</p></div></div>
+<div class="trend-item"><div class="trend-num">4</div><div class="trend-content"><h4>协议栈快速成型</h4><p>从 MCP 到完整协议栈（工具/通信/交互/发现/支付），竞争对手罕见合作</p></div></div>
+<div class="trend-item"><div class="trend-num">5</div><div class="trend-content"><h4>开源冲击波</h4><p>DeepSeek MIT 开源→Qwen 11.3 万衍生→中国开源全球扩张</p></div></div>
+<div class="trend-item"><div class="trend-num">6</div><div class="trend-content"><h4>安全威胁现实化</h4><p>Deepfake 欺诈、AI 网络攻击从理论变为日常。恶意使用增长 8 倍</p></div></div>
+<div class="trend-item"><div class="trend-num">7</div><div class="trend-content"><h4>监管碎片化</h4><p>美联邦创新优先 vs 州严格 vs EU 系统化 vs 中国强制标识</p></div></div>
+<div class="trend-item"><div class="trend-num">8</div><div class="trend-content"><h4>资本集中度空前</h4><p>三巨头私募市值接近 1 万亿；AI 占 VC ~50%；但 95% 组织零回报</p></div></div>
+</div>
+<div class="section">
+<h3>关键数字</h3>
+<div class="stats-grid">
+    <div class="stat"><div class="value">2023亿$</div><div class="label">2025 全球 AI 投资</div></div>
+    <div class="stat"><div class="value">8-9亿</div><div class="label">ChatGPT WAU</div></div>
+    <div class="stat"><div class="value">7.5亿</div><div class="label">Gemini MAU</div></div>
+    <div class="stat"><div class="value">72%</div><div class="label">全球企业 AI 采用率</div></div>
+    <div class="stat"><div class="value">6个月</div><div class="label">Claude Code → 10 亿 ARR</div></div>
+    <div class="stat"><div class="value">16,000+</div><div class="label">MCP 活跃服务器</div></div>
+    <div class="stat"><div class="value">~90%</div><div class="label">中国人形机器人份额</div></div>
+    <div class="stat"><div class="value">15亿$</div><div class="label">Bartz v. Anthropic</div></div>
+</div>
+</div>
+</div>
+
+</main>
+<footer>
+    <p>2025-2026 AI 行业全景报告 · 由 5 个并行研究代理深度检索后汇总编制</p>
+    <p>数据截至 2026 年 2 月 11 日 · 使用 <a href="https://claude.ai" target="_blank">Claude Code</a> 生成</p>
+</footer>
+<script>
+const sections = document.querySelectorAll('.chapter');
+const navLinks = document.querySelectorAll('.toc-nav a');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const id = entry.target.id;
+            const activeLink = document.querySelector(`.toc-nav a[href="#${id}"]`);
+            if (activeLink) activeLink.classList.add('active');
+        }
+    });
+}, { threshold: 0.15, rootMargin: '-60px 0px -60% 0px' });
+sections.forEach(section => observer.observe(section));
+</script>
+</body>
+</html>
