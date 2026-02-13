@@ -19,71 +19,140 @@
                 [
                   "2025.01.23",
                   "Operator",
-                  "浏览器自动化 Agent，基于 CUA 模型。WebArena 58.1%，OSWorld 38.1%。7月并入 ChatGPT Agent，8月下线"
+                  "浏览器自动化 Agent，基于 CUA 模型。WebArena 58.1%，OSWorld 38.1%。7月并入 ChatGPT Agent，8月下线",
+                  "core"
                 ],
                 [
                   "2025.01.31",
                   "o3-mini",
-                  "高效推理模型，对所有 ChatGPT 用户开放（含免费版）"
+                  "高效推理模型，对所有 ChatGPT 用户开放（含免费版）。应对 DeepSeek R1 竞争的关键举措",
+                  "core"
+                ],
+                [
+                  "2025.02.02",
+                  "Deep Research",
+                  "基于 o3 的自主研究 Agent，可浏览网页 5-30 分钟生成带引用报告。HLE 26.6%。首发 Pro 用户",
+                  "core"
                 ],
                 [
                   "2025.02.27",
                   "GPT-4.5 Preview",
-                  "代号\"Orion\"，最后一个非 CoT 模型。API $75/$150/M tokens。7月因 GPT-4.1 取代而弃用"
+                  "代号 Orion，最后一个非 CoT 模型。API $75/$150/M tokens。7月14日 API 下线（被 GPT-4.1 取代）",
+                  "core"
+                ],
+                [
+                  "2025.03.11",
+                  "Responses API + Agents SDK",
+                  "新 API 基础设施，替代 Assistants API。开源 Agent SDK，内置 web search / file search / computer use 工具",
+                  "core"
+                ],
+                [
+                  "2025.03.25",
+                  "GPT-4o 图像生成",
+                  "原生图像生成能力，吉卜力风格爆火。首周 1.3 亿用户生成 7 亿张图。API 版 gpt-image-1 4月23日上线",
+                  "core"
                 ],
                 [
                   "2025.04.14",
                   "GPT-4.1 / mini / nano",
-                  "三款同发。⟦SWE-bench⟧ Verified 比 GPT-4o 高 21.4 百分点；100 万 token 上下文"
+                  "三款同发。⟦SWE-bench⟧ Verified 比 GPT-4o 高 21.4 百分点；100 万 token 上下文",
+                  "core"
                 ],
                 [
                   "2025.04.16",
                   "o3 & o4-mini",
-                  "o3 ⟦GPQA⟧ Diamond 83.3%；o4-mini AIME 2025 99.5%（使用 Python）"
+                  "o3 ⟦GPQA⟧ Diamond 83.3%；o4-mini AIME 2025 99.5%（使用 Python）。同日开源 Codex CLI",
+                  "core"
                 ],
                 [
                   "2025.05.16",
                   "Codex (codex-1)",
-                  "AI 编码 Agent，基于 o3 优化。沙盒云环境，1-30 分钟完成功能开发"
+                  "AI 编码 Agent，基于 o3 优化。沙盒云环境，1-30 分钟完成功能开发",
+                  "core"
                 ],
                 [
-                  "2025.05",
-                  "Sora 2 / Sora 2 Pro",
-                  "视频+同步音频生成。API 开放 v1/videos 端点"
+                  "2025.05.21",
+                  "收购 io (Jony Ive)",
+                  "$65 亿收购前苹果设计师 Jony Ive 的 AI 硬件公司 io，OpenAI 史上最大收购",
+                  "core"
                 ],
                 [
                   "2025.06.10",
                   "o3-pro",
-                  "\"最可靠模型\"，AIME 2024 超越 Gemini 2.5 Pro"
+                  "最可靠推理模型。同日 o3 API 降价 80%（$10/$40 → $2/$8/M tokens）",
+                  "core"
+                ],
+                [
+                  "2025.07.17",
+                  "ChatGPT Agent",
+                  "通用 AI Agent 集成入 ChatGPT，整合 Operator + Deep Research。可浏览网页、执行代码、操作 API",
+                  "core"
+                ],
+                [
+                  "2025.08.05",
+                  "GPT-OSS (120B/20B)",
+                  "自 GPT-2 以来首个开源模型，Apache 2.0，MoE 架构。120B 接近 o4-mini，20B 可在 16GB 设备运行",
+                  "core"
                 ],
                 [
                   "2025.08.07",
                   "GPT-5 / GPT-5 Pro",
-                  "重大里程碑。AIME 2025 94.6%，⟦SWE-bench⟧ 74.9%，幻觉率降低约 6 倍"
+                  "年度旗舰。AIME 2025 94.6%，⟦SWE-bench⟧ 74.9%，幻觉率 4.8%（o3 为 22%）。首个统一推理+快速回答模型",
+                  "core"
+                ],
+                [
+                  "2025.09.15",
+                  "GPT-5-Codex",
+                  "GPT-5 编码优化版，可独立工作超 7 小时。9.23 上线 API",
+                  "deep"
+                ],
+                [
+                  "2025.09.30",
+                  "Sora 2 / Sora 2 Pro",
+                  "视频+同步音频生成。API 开放 v1/videos 端点",
+                  "core"
+                ],
+                [
+                  "2025.10.06",
+                  "DevDay 2025",
+                  "发布 GPT-5 Pro API、AgentKit/ChatKit、Apps SDK。宣布 800M 周活用户",
+                  "deep"
                 ],
                 [
                   "2025.11.12",
                   "GPT-5.1",
-                  "新增\"购物研究\"、8 种可定制个性风格"
+                  "新增 8 种可定制个性风格、adaptive reasoning。11.19 发布 GPT-5.1-Codex-Max（首个 compaction 编码模型）",
+                  "deep"
                 ],
                 [
                   "2025.12.11",
-                  "GPT-5.2 / GPT-5.2 Pro",
-                  "因 Gemini 3 发布加速推出。财务建模能力显著增强"
+                  "GPT-5.2 (Instant/Thinking/Pro)",
+                  "因 Gemini 3 发布加速推出（内部代号 Code Red）。AIME 2025 100%，财务建模能力显著增强",
+                  "core"
                 ],
                 [
                   "2025.12.18",
                   "GPT-5.2-Codex",
-                  "旗舰编码模型，上下文压缩改善长任务处理，新增 Windows 环境"
+                  "旗舰编码模型，上下文压缩改善长任务处理，新增 Windows 环境。网络安全能力增强",
+                  "deep"
                 ],
                 [
                   "2026.02.05",
                   "GPT-5.3-Codex",
-                  "结合 GPT-5.2-Codex 编码 + GPT-5.2 推理，速度提升 25%。超 100 万开发者"
+                  "结合 GPT-5.2-Codex 编码 + GPT-5.2 推理，速度提升 25%。首个参与自身训练的模型，首个网络安全 High capability 模型",
+                  "core"
+                ],
+                [
+                  "2026.02.12",
+                  "GPT-5.3-Codex-Spark",
+                  "首个运行在非 Nvidia 硬件（Cerebras WSE-3）的模型，>1000 tokens/s，15x 快于 GPT-5.3-Codex",
+                  "core"
                 ]
               ]
             }
-          ]
+          ],
+          "group": "global",
+          "groupLabel": "🌐 国际"
         },
         {
           "title": "1.2 Google / DeepMind",
@@ -100,51 +169,104 @@
                 [
                   "2025.01.30",
                   "Gemini 2.0 Flash",
-                  "成为默认模型。100 万 token 上下文"
+                  "成为默认模型。100 万 token 上下文",
+                  "core"
                 ],
                 [
                   "2025.02.05",
-                  "Gemini 2.0 Pro / Flash-Lite",
-                  "2.0 Pro 200 万 token 上下文，最强编码；Flash-Lite 最高性价比"
+                  "Gemini 2.0 Pro (实验版) / Flash-Lite",
+                  "Pro 200 万 token 上下文，最强编码（实验版）；Flash-Lite 最高性价比",
+                  "deep"
+                ],
+                [
+                  "2025.03.12",
+                  "Gemma 3 开源",
+                  "首款多模态 Gemma，1B-27B 参数，128K 上下文，140+ 语言，单 GPU 可运行",
+                  "core"
                 ],
                 [
                   "2025.03.25",
                   "Gemini 2.5 Pro (实验版)",
-                  "首款 thinking model，增强推理和编码"
+                  "Google 首款 thinking model，LMArena 第一。增强推理和编码",
+                  "core"
                 ],
                 [
-                  "2025.05",
+                  "2025.04.09",
+                  "Cloud Next 2025",
+                  "Ironwood TPU v7（4,614 TFLOPS）发布；Agent Development Kit 开源；Agent2Agent 协议",
+                  "core"
+                ],
+                [
+                  "2025.05.14",
+                  "AlphaEvolve",
+                  "通用进化编码 Agent，结合 Gemini + 进化计算。为 Google 节省 0.7% 全球算力，优化下一代 TPU 布局",
+                  "core"
+                ],
+                [
+                  "2025.05.20",
+                  "Google I/O 2025",
+                  "Gemini 4 亿月活；AI Mode 全美开放；Jules 编码 Agent 公测；Stitch UI 工具；Gemini Diffusion 实验",
+                  "core"
+                ],
+                [
+                  "2025.05.20",
                   "Veo 3 / Imagen 4 / Lyria 2",
-                  "Veo 3 视频+音频同步生成；Imagen 4 最先进图像生成；Lyria 2 音乐生成"
+                  "Veo 3 首个视频+原生音频同步生成；Imagen 4 最先进图像生成；Lyria 2 音乐生成",
+                  "core"
                 ],
                 [
                   "2025.06.17",
                   "Gemini 2.5 Pro/Flash GA",
-                  "2.5 系列正式商用"
+                  "2.5 系列正式商用",
+                  "deep"
+                ],
+                [
+                  "2025.06.25",
+                  "Gemini CLI 开源",
+                  "终端 AI Agent，Apache 2.0，1M token 上下文，60 次/分钟免费。GitHub 85K+ stars",
+                  "core"
                 ],
                 [
                   "2025.10.15",
                   "Veo 3.1",
-                  "图到视频过渡、场景延伸（1 分钟+视频）"
+                  "图到视频过渡、场景延伸（1 分钟+ 视频）",
+                  "deep"
                 ],
                 [
                   "2025.11.18",
                   "Gemini 3 Pro / Deep Think",
-                  "20 项基准中 19 项领先，HLE 37.5%（Deep Think 模式 41.0%）。⟦SWE-bench⟧ 76.2%"
+                  "20 项基准 19 项领先，HLE 37.5%（Deep Think 41.0%）。⟦SWE-bench⟧ 76.2%。LMArena Elo 1501",
+                  "core"
+                ],
+                [
+                  "2025.11.18",
+                  "Antigravity IDE",
+                  "Agent-first IDE（基于 VS Code），支持多模型、Manager 视图多 Agent 并行。Sergey Brin 回归发布",
+                  "core"
                 ],
                 [
                   "2025.12.17",
                   "Gemini 3 Flash",
-                  "替代 2.5 Flash 成为默认"
+                  "替代 2.5 Flash 成为默认",
+                  "core"
                 ],
                 [
                   "2026.01.12",
                   "Apple 合作",
-                  "Apple 宣布使用 Gemini 为下一代 Siri 提供支撑"
+                  "Apple 宣布与 Google 达成多年合作，下一代 Siri 基于 Gemini 模型构建",
+                  "core"
+                ],
+                [
+                  "2026.02.12",
+                  "Gemini 3 Deep Think 更新",
+                  "HLE 48.4%，ARC-AGI-2 84.6%，Codeforces 3455 Elo（传奇大师）。解决 18 个未解研究问题",
+                  "core"
                 ]
               ]
             }
-          ]
+          ],
+          "group": "global",
+          "groupLabel": "🌐 国际"
         },
         {
           "title": "1.3 Anthropic",
@@ -161,51 +283,116 @@
                 [
                   "2025.01",
                   "Claude 3.5 更新",
-                  "新版 computer use 工具，新增 Citations 引用功能"
+                  "新版 computer use 工具（hold_key/scroll/wait 等），新增 Citations 引用功能",
+                  "deep"
                 ],
                 [
-                  "2025.02.25",
+                  "2025.02.24",
                   "Claude 3.7 Sonnet",
-                  "业界首款混合推理模型。⟦SWE-bench⟧ 62.3%。同时发布 Claude Code 预览版"
+                  "业界首款混合推理模型。⟦SWE-bench⟧ 62.3%（标准）/ 70.3%（extended thinking）。同时发布 Claude Code 预览版",
+                  "core"
+                ],
+                [
+                  "2025.03",
+                  "Anthropic 融资 $615 亿估值",
+                  "$35 亿融资，Lightspeed 领投",
+                  "core"
+                ],
+                [
+                  "2025.03.21",
+                  "Claude Web Search",
+                  "Claude 获得网页搜索能力（Brave Search），首先面向美国付费用户。API 可用 web_search 工具",
+                  "core"
+                ],
+                [
+                  "2025.03.27",
+                  "Tracing the Thoughts",
+                  "归因图方法追踪 LLM 内部推理过程并开源，可解释性里程碑",
+                  "deep"
+                ],
+                [
+                  "2025.04.09",
+                  "Claude Max 订阅",
+                  "新增 $100/月（5x Pro）和 $200/月（20x Pro）高级订阅层",
+                  "core"
+                ],
+                [
+                  "2025.05.01",
+                  "Integrations + Research",
+                  "Claude Integrations 上线（Jira/Confluence/Zapier 等）；Research 模式升级支持 Google Workspace + 深度网页搜索",
+                  "core"
                 ],
                 [
                   "2025.05.22",
                   "Claude Opus 4 & Sonnet 4",
-                  "新一代旗舰。Opus 4 \"世界最佳编码模型\"。Claude Code 同日 GA"
+                  "新一代旗舰。Opus 4 \"世界最佳编码模型\"。ASL-3 首次激活。Claude Code GA",
+                  "core"
                 ],
                 [
-                  "2025.08",
+                  "2025.08.05",
                   "Claude Opus 4.1",
-                  "增量更新，后被 Sonnet 4.5 超越并弃用"
+                  "⟦SWE-bench⟧ 74.5%，OSWorld 44.4%。增量更新，后被 Sonnet 4.5 超越",
+                  "deep"
                 ],
                 [
-                  "2025.09.30",
-                  "Claude Sonnet 4.5",
-                  "⟦SWE-bench⟧ 77.2%，OSWorld 61.4%，可自主运行 30 小时"
+                  "2025.08.27",
+                  "Claude for Chrome",
+                  "Chrome 浏览器扩展研究预览，初始限 1000 名 Max 用户。可直接控制浏览器完成网页任务",
+                  "core"
                 ],
                 [
-                  "2025.10",
+                  "2025.09",
+                  "Anthropic 融资 $1830 亿估值",
+                  "Series F $130 亿，Iconiq/Fidelity/Lightspeed 联合领投",
+                  "core"
+                ],
+                [
+                  "2025.09.29",
+                  "Claude Sonnet 4.5 + Claude Code 2.0",
+                  "⟦SWE-bench⟧ 77.2%，OSWorld 61.4%，可自主运行 30 小时。Code 2.0: VS Code 扩展、Checkpoints、子代理",
+                  "core"
+                ],
+                [
+                  "2025.10.15",
                   "Claude Haiku 4.5",
-                  "最快最高性价比，匹配 Sonnet 4 编码性能"
+                  "⟦SWE-bench⟧ 73%，$1/$5 定价。匹配 Sonnet 4 编码性能，成为免费用户默认模型",
+                  "core"
                 ],
                 [
                   "2025.11.24",
                   "Claude Opus 4.5",
-                  "⟦SWE-bench⟧ 80.9%。引入 effort 参数，80% 价格降低"
+                  "⟦SWE-bench⟧ 80.9%。定价降 67%（$5/$25）。effort 参数可额外减少 76% token 消耗",
+                  "core"
                 ],
                 [
-                  "2026.01",
+                  "2025.12.09",
+                  "MCP → Linux 基金会",
+                  "将 MCP 捐赠给新成立的 Agentic AI Foundation，OpenAI/Google/Microsoft/AWS 为创始成员",
+                  "core"
+                ],
+                [
+                  "2026.01.12",
                   "Claude Cowork",
-                  "面向非技术用户的 GUI Agent 工具（研究预览），主要由 Claude Code 自身构建"
+                  "面向非技术用户的 GUI Agent 工具（研究预览），主要由 Claude Code 自身构建",
+                  "core"
                 ],
                 [
                   "2026.02.05",
                   "Claude Opus 4.6",
-                  "当前最新旗舰。100 万 token 上下文(beta)。新增 Agent Teams"
+                  "当前最新旗舰。100 万 token 上下文(beta)，Agent Teams 多代理协作，OSWorld 72.7%，ARC-AGI-2 68.8%",
+                  "core"
+                ],
+                [
+                  "2026.02.12",
+                  "Anthropic Series G 融资",
+                  "$300 亿，估值 $3800 亿。年化收入 $140 亿，Claude Code 年化 $25 亿",
+                  "core"
                 ]
               ]
             }
-          ]
+          ],
+          "group": "global",
+          "groupLabel": "🌐 国际"
         },
         {
           "title": "1.4 xAI (Elon Musk)",
@@ -222,24 +409,83 @@
                 [
                   "2025.02.17",
                   "Grok 3 / Grok 3 mini",
-                  "Colossus 超算（约 20 万 GPU）训练，100 万 token 上下文。Elo 1402"
+                  "Colossus 超算（约 20 万 GPU）训练。Elo 1402。100 万 token 宣称（API 实际 131K）",
+                  "core"
                 ],
                 [
-                  "2025.05",
-                  "Grok 3.5 Beta",
-                  "仅 SuperGrok 订阅用户（4月底宣布，5月初上线）"
+                  "2025.04.09",
+                  "Grok 3 API 上线",
+                  "开发者可接入。$3/$15 per M tokens，131K 上下文",
+                  "core"
+                ],
+                [
+                  "2025.04.29",
+                  "Grok 3.5 宣布（跳过）",
+                  "Musk 宣布\"下周发布 beta\"但持续跳票。6月确认跳过，直接推进 Grok 4",
+                  "deep"
                 ],
                 [
                   "2025.07.09",
                   "Grok 4 / Grok 4 Heavy",
-                  "~1.7 万亿参数，AIME'25 95 分（基础版），HLE 44.4%（Heavy 版）。$300/月订阅"
+                  "~1.7 万亿参数 MoE。Grok 4 Heavy AIME'25 95%，HLE 44.4%。$300/月 SuperGrok Heavy 订阅",
+                  "core"
+                ],
+                [
+                  "2025.07.12",
+                  "Grok 接入 Tesla 车载",
+                  "OTA 更新 2025.26 版固件，Model S/3/X/Y/Cybertruck 可使用语音 Grok",
+                  "core"
+                ],
+                [
+                  "2025.08.24",
+                  "Grok 2.5 开源",
+                  "发布在 Hugging Face，约 2700 亿参数。社区许可证（非 OSI 标准开源）",
+                  "core"
+                ],
+                [
+                  "2025.09.19",
+                  "xAI Series D + Grok 4 Fast",
+                  "$100 亿融资，估值 $2000 亿。同日发布 Grok 4 Fast：$0.20/$0.50/M tokens，2M 上下文",
+                  "core"
+                ],
+                [
+                  "2025.10.27",
+                  "Grokipedia 上线",
+                  "AI 驱动百科全书，80 万+ 文章，定位 Wikipedia 替代品。争议较大",
+                  "deep"
+                ],
+                [
+                  "2025.11.17",
+                  "Grok 4.1 / 4.1 Fast",
+                  "LMArena Elo 1483（#1），幻觉降低 65%，强调情商。4.1 Fast 支持 2M 上下文",
+                  "core"
+                ],
+                [
+                  "2026.01.06",
+                  "xAI Series E",
+                  "$200 亿融资，估值 ~$2300 亿。NVIDIA/Cisco/Fidelity/卡塔尔投资局等参投",
+                  "core"
+                ],
+                [
+                  "2026.01.28",
+                  "Grok Imagine API",
+                  "视频/图像/音频一体生成 API。Video Arena 排名 #1，定价 $4.20/min",
+                  "core"
+                ],
+                [
+                  "2026.02.02",
+                  "SpaceX 收购 xAI",
+                  "全股票交易，合计估值 $1.25 万亿。史上最大科技合并案",
+                  "core"
                 ]
               ]
             }
-          ]
+          ],
+          "group": "global",
+          "groupLabel": "🌐 国际"
         },
         {
-          "title": "1.5 DeepSeek",
+          "title": "1.5 Meta Llama",
           "content": [
             {
               "type": "table",
@@ -251,91 +497,43 @@
               ],
               "rows": [
                 [
-                  "2025.01.20",
-                  "DeepSeek-R1",
-                  "671B/37B 激活(⟦MoE⟧)，MIT 开源。~$558 万训练成本（V3基座GPU训练）震动行业，引发\"DeepSeek 冲击波\""
+                  "2024.12.06",
+                  "Llama 3.3 70B",
+                  "匹配 Llama 3.1 405B 性能，4-bit 量化单 GPU 运行。开源（Llama 许可证）",
+                  "deep"
                 ],
-                [
-                  "2025.03.24",
-                  "V3-0324",
-                  "V3 升级版，推理和编码显著提升"
-                ],
-                [
-                  "2025.05.28",
-                  "R1-0528",
-                  "AIME 2025 从 70.0 提升至 87.5，⟦GPQA⟧ 从 71.5 提升至 81.0"
-                ],
-                [
-                  "2025.08.21",
-                  "V3.1",
-                  "混合架构 thinking/non-thinking 切换，比 V3/R1 高 40%+"
-                ],
-                [
-                  "2025.09.17",
-                  "R1 登 Nature 封面",
-                  "中国大模型首次、全球首个经完整同行评审的主流 LLM 研究。NSA 获 ACL 2025 最佳论文"
-                ],
-                [
-                  "2025.09.29",
-                  "V3.2-Exp",
-                  "DeepSeek Sparse Attention (DSA)，API 降价 50%+"
-                ],
-                [
-                  "2025.12.01",
-                  "V3.2 / V3.2-Speciale",
-                  "685B，「GPT-5 级性能」，API $0.28/M tokens"
-                ],
-                [
-                  "2026.01",
-                  "mHC / Engram 论文",
-                  "流形约束超连接新架构 + 条件记忆模块 O(1) 知识查找"
-                ],
-                [
-                  "2026.02(预期)",
-                  "V4",
-                  "编码能力超越 Claude/GPT（内部测试），可能采用全新架构"
-                ]
-              ]
-            },
-            {
-              "type": "note",
-              "text": "创始人梁文锋，资金来自旗下量化私募「幻方量化」。不接受外部融资、不上市。2025.12 估值 1.05 万亿元（中国第二，仅次于字节）。梁文锋入选《时代》全球 100 最具影响力人物、Nature 2025 年度十大科学人物。月活 1.45 亿（2025.09），计划 2026 年底前推出完全自主 AI 智能体。"
-            }
-          ]
-        },
-        {
-          "title": "1.6 Meta Llama",
-          "content": [
-            {
-              "type": "table",
-              "subtitle": null,
-              "headers": [
-                "时间",
-                "模型",
-                "关键信息"
-              ],
-              "rows": [
                 [
                   "2025.04.05",
                   "Llama 4 Scout",
-                  "109B/17B 激活，1000 万 token 上下文（业界最大），单张 H100 可运行"
+                  "109B/17B 激活(MoE)，1000 万 token 上下文（业界最大），单张 H100 可运行",
+                  "core"
                 ],
                 [
                   "2025.04.05",
                   "Llama 4 Maverick",
-                  "400B/17B 激活，100 万 token 上下文"
+                  "400B/17B 激活(MoE)，100 万 token 上下文，128 专家",
+                  "core"
+                ],
+                [
+                  "2025.04",
+                  "Llama Guard 4 + Prompt Guard 2",
+                  "安全防护模型同步发布，支持多模态安全检测",
+                  "deep"
                 ],
                 [
                   "未发布",
                   "Llama 4 Behemoth",
-                  "~2T/288B 激活，仍在训练"
+                  "~2T/288B 激活，仍在训练中，Meta 最大语言模型",
+                  "deep"
                 ]
               ]
             }
-          ]
+          ],
+          "group": "global",
+          "groupLabel": "🌐 国际"
         },
         {
-          "title": "1.7 阿里 Qwen 通义千问",
+          "title": "1.6 Mistral AI",
           "content": [
             {
               "type": "table",
@@ -347,67 +545,49 @@
               ],
               "rows": [
                 [
-                  "2025.01",
-                  "Qwen2.5-VL / Qwen2.5-Max",
-                  "多模态视觉语言模型；Max 号称超越 GPT-4o"
+                  "2025.01.29",
+                  "Mistral Small 3",
+                  "24B 开放权重，超越 Llama 3.3 70B，Apache 2.0。端侧部署友好",
+                  "core"
                 ],
                 [
-                  "2025.03.26",
-                  "Qwen2.5-Omni-7B",
-                  "全模态：文本+图像+视频+音频输入输出"
+                  "2025.02.11",
+                  "Pixtral Large",
+                  "124B 多模态旗舰（文本+视觉），128K 上下文，开放权重",
+                  "deep"
                 ],
                 [
-                  "2025.04.28",
-                  "Qwen3 全系列",
-                  "稠密+稀疏模型，36 万亿 token，119 种语言"
+                  "2025.05.14",
+                  "Devstral",
+                  "24B 编码模型，开放权重，SWE-bench 46.8%，与 Cursor 合作",
+                  "core"
                 ],
-                [
-                  "2025.07-08",
-                  "Qwen3-Coder",
-                  "480B-A35B(⟦MoE⟧)，256K 至 100 万上下文"
-                ],
-                [
-                  "2025.09",
-                  "Qwen3-Max / Qwen3-Next",
-                  "超稀疏 ⟦MoE⟧ + 多 token 预测新架构预览"
-                ]
-              ]
-            }
-          ]
-        },
-        {
-          "title": "1.8 Mistral AI",
-          "content": [
-            {
-              "type": "table",
-              "subtitle": null,
-              "headers": [
-                "时间",
-                "模型",
-                "关键信息"
-              ],
-              "rows": [
                 [
                   "2025.06.10",
                   "Magistral Small/Medium",
-                  "Mistral 首批推理模型"
+                  "Mistral 首批推理模型，Medium 达 o3-mini-high 水平",
+                  "core"
                 ],
                 [
                   "2025.12.02",
                   "Mistral Large 3",
-                  "675B/41B 激活(⟦MoE⟧)，开放权重(Apache 2.0)，多模态"
+                  "675B/41B 激活(MoE)，开放权重(Apache 2.0)，多模态",
+                  "core"
                 ],
                 [
                   "2025.12.10",
                   "Devstral 2",
-                  "编码模型，24B 超越 Qwen3 Coder Flash"
+                  "编码模型，24B 超越 Qwen3 Coder Flash",
+                  "deep"
                 ]
               ]
             }
-          ]
+          ],
+          "group": "global",
+          "groupLabel": "🌐 国际"
         },
         {
-          "title": "1.9 Amazon Nova",
+          "title": "1.7 Amazon Nova",
           "content": [
             {
               "type": "table",
@@ -421,24 +601,29 @@
                 [
                   "2024.12",
                   "Nova 第一代",
-                  "Micro/Lite/Pro/Premier/Canvas/Reel 六款模型，AWS Bedrock 独占"
+                  "Micro/Lite/Pro/Premier/Canvas/Reel 六款模型，AWS Bedrock 独占",
+                  "core"
                 ],
                 [
                   "2025.12",
                   "Nova 2 Lite/Pro/Omni/Sonic",
-                  "Nova 2 Omni 首个支持文本+图像+视频+语音输入、同时原生生成文本和图像的推理模型。支持 MCP"
+                  "Omni 首个原生全模态输入输出推理模型，支持 MCP 协议",
+                  "core"
                 ],
                 [
                   "2025.12",
                   "Nova Act",
-                  "浏览器 Agent 服务，基于 Nova 2 Lite，90% 可靠性"
+                  "浏览器 Agent 服务，基于 Nova 2 Lite，90% 可靠性",
+                  "deep"
                 ]
               ]
             }
-          ]
+          ],
+          "group": "global",
+          "groupLabel": "🌐 国际"
         },
         {
-          "title": "1.10 Microsoft Phi 系列",
+          "title": "1.8 Microsoft Phi 系列",
           "content": [
             {
               "type": "table",
@@ -450,19 +635,22 @@
               ],
               "rows": [
                 [
-                  "2024.12",
+                  "2024.12.12",
                   "Phi-4",
-                  "14B 参数，MIT 开源"
+                  "14B 参数，MIT 开源，合成数据训练创新，数学推理 SOTA",
+                  "core"
                 ],
                 [
-                  "2025.02",
+                  "2025.02.26",
                   "Phi-4-mini / multimodal",
-                  "3.8B mini + 5.6B 多模态（语音+视觉+文本），NPU 端侧部署"
+                  "3.8B mini + 5.6B 多模态（语音+视觉+文本），NPU 端侧部署",
+                  "core"
                 ],
                 [
-                  "2025.04-05",
+                  "2025.04.30",
                   "Phi-4-reasoning / reasoning-plus",
-                  "14B 推理模型，部分基准超越 DeepSeek-R1（671B）"
+                  "14B 推理模型，部分基准超越 DeepSeek-R1（671B），MIT 开源",
+                  "core"
                 ]
               ]
             },
@@ -470,10 +658,12 @@
               "type": "note",
               "text": "Phi-4 家族是 2025 年小模型（SLM）效率优先趋势的标杆——14B 参数在部分任务超越 671B 模型。"
             }
-          ]
+          ],
+          "group": "global",
+          "groupLabel": "🌐 国际"
         },
         {
-          "title": "1.11 其他重要模型",
+          "title": "1.9 其他重要模型",
           "content": [
             {
               "type": "table",
@@ -487,31 +677,192 @@
               "rows": [
                 [
                   "Google",
-                  "2025.03",
+                  "2025.03.12",
                   "Gemma 3",
-                  "1B/4B/12B/27B 开放模型，基于 Gemini 2.0 技术，多模态+128K 上下文。200M+ 下载量，60K+ 社区变体"
+                  "1B/4B/12B/27B 开放模型，多模态+128K 上下文，200M+ 下载",
+                  "core"
                 ],
                 [
-                  "IBM",
-                  "2025.10",
-                  "Granite 4.0",
-                  "混合 Mamba/Transformer 架构，内存节省 70%+，ISO 42001 认证。Apache 2.0 开源"
-                ],
-                [
-                  "IBM",
-                  "2025.10",
-                  "Granite 4.0 Nano",
-                  "350M-1B Edge 推理模型，可在浏览器内运行"
+                  "NVIDIA",
+                  "2025.03",
+                  "Llama Nemotron Ultra",
+                  "253B MoE 基于 Llama 架构，企业 AI 优化旗舰，开放权重",
+                  "core"
                 ],
                 [
                   "Cohere",
                   "2025.03",
                   "Command A",
-                  "企业 RAG 旗舰模型，取代 Command R/R+"
+                  "111B MoE 企业 RAG 旗舰，Apache 2.0 开放权重",
+                  "core"
+                ],
+                [
+                  "IBM",
+                  "2025.10",
+                  "Granite 4.0",
+                  "混合 Mamba/Transformer 架构，内存节省 70%+，ISO 42001 认证",
+                  "deep"
+                ],
+                [
+                  "IBM",
+                  "2025.10",
+                  "Granite 4.0 Nano",
+                  "350M-1B Edge 推理模型，可在浏览器内运行",
+                  "deep"
                 ]
               ]
             }
-          ]
+          ],
+          "group": "global",
+          "groupLabel": "🌐 国际"
+        },
+        {
+          "title": "1.10 DeepSeek",
+          "content": [
+            {
+              "type": "table",
+              "subtitle": null,
+              "headers": [
+                "时间",
+                "模型",
+                "关键信息"
+              ],
+              "rows": [
+                [
+                  "2024.12.26",
+                  "DeepSeek-V3",
+                  "671B/37B 激活(MoE)，MIT 开源，训练仅 $558 万(2048×H800)，震动行业",
+                  "core"
+                ],
+                [
+                  "2025.01.20",
+                  "DeepSeek-R1",
+                  "纯 RL 训练的推理模型，MIT 开源。引发\"DeepSeek 冲击波\"，美股科技板块下跌约 $1 万亿",
+                  "core"
+                ],
+                [
+                  "2025.01.28",
+                  "Janus Pro",
+                  "1B/7B 多模态理解+生成统一模型，MIT 开源",
+                  "deep"
+                ],
+                [
+                  "2025.03.24",
+                  "V3-0324",
+                  "V3 升级版，推理和编码显著提升",
+                  "core"
+                ],
+                [
+                  "2025.05.28",
+                  "R1-0528",
+                  "AIME 2025 从 70.0→87.5，GPQA 从 71.5→81.0",
+                  "deep"
+                ],
+                [
+                  "2025.08.21",
+                  "V3.1",
+                  "混合架构 thinking/non-thinking 切换，比 V3/R1 高 40%+",
+                  "core"
+                ],
+                [
+                  "2025.09.17",
+                  "R1 登 Nature 封面",
+                  "中国大模型首次、全球首个经完整同行评审的主流 LLM 研究。NSA 获 ACL 2025 最佳论文",
+                  "deep"
+                ],
+                [
+                  "2025.09.29",
+                  "V3.2-Exp",
+                  "DeepSeek Sparse Attention (DSA)，API 降价 50%+",
+                  "deep"
+                ],
+                [
+                  "2025.12.01",
+                  "V3.2 / V3.2-Speciale",
+                  "685B，「GPT-5 级性能」，API $0.28/M tokens",
+                  "core"
+                ],
+                [
+                  "2026.01",
+                  "mHC / Engram 论文",
+                  "流形约束超连接新架构 + 条件记忆模块 O(1) 知识查找",
+                  "deep"
+                ],
+                [
+                  "2026.02(预期)",
+                  "V4",
+                  "编码能力超越 Claude/GPT（内部测试），可能采用全新架构",
+                  "deep"
+                ]
+              ]
+            },
+            {
+              "type": "note",
+              "text": "创始人梁文锋，资金来自旗下量化私募「幻方量化」。不接受外部融资、不上市。2025.12 估值 1.05 万亿元（中国第二，仅次于字节）。梁文锋入选《时代》全球 100 最具影响力人物、Nature 2025 年度十大科学人物。月活 1.45 亿（2025.09），计划 2026 年底前推出完全自主 AI 智能体。"
+            }
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
+        },
+        {
+          "title": "1.11 阿里 Qwen 通义千问",
+          "content": [
+            {
+              "type": "table",
+              "subtitle": null,
+              "headers": [
+                "时间",
+                "模型",
+                "关键信息"
+              ],
+              "rows": [
+                [
+                  "2024.11.28",
+                  "QwQ-32B-Preview",
+                  "Qwen 首款推理模型预览，32K 上下文",
+                  "deep"
+                ],
+                [
+                  "2025.01",
+                  "Qwen2.5-VL / Qwen2.5-Max",
+                  "多模态视觉语言模型；Max 号称超越 GPT-4o",
+                  "core"
+                ],
+                [
+                  "2025.03.06",
+                  "QwQ-32B 正式版",
+                  "32B 推理模型，Apache 2.0，匹配 DeepSeek-R1 水平",
+                  "core"
+                ],
+                [
+                  "2025.03.26",
+                  "Qwen2.5-Omni-7B",
+                  "全模态：文本+图像+视频+音频输入输出",
+                  "deep"
+                ],
+                [
+                  "2025.04.28",
+                  "Qwen3 全系列",
+                  "0.6B~235B 共 8 款，稠密+MoE，36 万亿 token，119 种语言",
+                  "core"
+                ],
+                [
+                  "2025.07",
+                  "Qwen3-Coder",
+                  "480B-A35B(MoE)，256K 至 100 万上下文",
+                  "core"
+                ],
+                [
+                  "2025.09",
+                  "Qwen3-Max / Qwen3-Next",
+                  "超稀疏 MoE + 多 token 预测新架构预览",
+                  "deep"
+                ]
+              ]
+            }
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.12 字节·豆包",
@@ -519,29 +870,76 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["时间", "模型", "关键信息"],
+              "headers": [
+                "时间",
+                "模型",
+                "关键信息"
+              ],
               "rows": [
-                ["2025.06", "豆包大模型 1.6", "三版本：seed-1.6（综合256K）/ thinking（深度推理）/ flash（极速）"],
-                ["2025.11", "Doubao-Seed-Code", "Agentic Coding 优化，原生 256K + 视觉理解，综合成本降低 62.7%"],
-                ["2025.12", "豆包大模型 1.8", "多模态 Agent 定向优化，工具调用/指令遵循/OS Agent 增强"],
-                ["2026.02.14", "豆包大模型 2.0", "基础模型 + 企业级 Agent 能力大幅升级（预定发布）"],
-                ["2026.02.14", "Seedance 2.0 / Seedream 5.0", "音视频 + 图像创作模型同步发布"]
+                [
+                  "2025.06",
+                  "豆包大模型 1.6",
+                  "三版本：seed-1.6（综合256K）/ thinking（深度推理）/ flash（极速）",
+                  "core"
+                ],
+                [
+                  "2025.11",
+                  "Doubao-Seed-Code",
+                  "Agentic Coding 优化，原生 256K + 视觉理解，成本降低 62.7%",
+                  "deep"
+                ],
+                [
+                  "2025.12",
+                  "豆包大模型 1.8",
+                  "多模态 Agent 定向优化，工具调用/指令遵循/OS Agent 增强",
+                  "core"
+                ],
+                [
+                  "2026.02.14",
+                  "豆包大模型 2.0",
+                  "基础模型 + 企业级 Agent 能力大幅升级（预定发布）",
+                  "core"
+                ],
+                [
+                  "2026.02.14",
+                  "Seedance 2.0 / Seedream 5.0",
+                  "音视频 + 图像创作模型同步发布",
+                  "deep"
+                ]
               ]
             },
             {
               "type": "stats",
               "items": [
-                {"value": "1 亿+", "label": "豆包 APP DAU", "color": "accent"},
-                {"value": "50 万亿", "label": "日均 Token 消耗", "color": "green"},
-                {"value": "46.4%", "label": "火山引擎 MaaS 份额", "color": "blue"},
-                {"value": "百万级", "label": "日自然下载量", "color": "orange"}
+                {
+                  "value": "1 亿+",
+                  "label": "豆包 APP DAU",
+                  "color": "accent"
+                },
+                {
+                  "value": "50 万亿",
+                  "label": "日均 Token 消耗",
+                  "color": "green"
+                },
+                {
+                  "value": "46.4%",
+                  "label": "火山引擎 MaaS 份额",
+                  "color": "blue"
+                },
+                {
+                  "value": "百万级",
+                  "label": "日自然下载量",
+                  "color": "orange"
+                }
               ]
             },
             {
               "type": "note",
               "text": "字节史上推广费用最低的破亿产品。Doubao-Seed-Code 在编程测评中仅次于 Claude Sonnet 4.5，超越 DeepSeek-V3.1、Kimi-K2、GLM-4.6。火山引擎为 2026 央视春晚独家 AI 云合作伙伴。"
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.13 智谱·GLM",
@@ -549,20 +947,51 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["时间", "模型", "关键信息"],
+              "headers": [
+                "时间",
+                "模型",
+                "关键信息"
+              ],
               "rows": [
-                ["2025.07", "GLM-4.5 / GLM-4.5 Air", "355B/32B 激活，8 张 H20 可运行"],
-                ["2025.09", "GLM-4.6", "使用寒武纪等国产芯片训练，多模态 ⟦MoE⟧ 混合推理开源"],
-                ["2025.12", "GLM-4.6V", "多模态 ⟦MoE⟧ 混合推理开源"],
-                ["2026.01.08", "港交所 IPO", "中国首家上市的大模型公司"],
-                ["2026.02.11", "GLM-5", "744B/40B 激活，28.5T tokens 训练，集成 DSA，开源 ⟦SOTA⟧"]
+                [
+                  "2025.07",
+                  "GLM-4.5 / GLM-4.5 Air",
+                  "355B/32B 激活，8 张 H20 可运行",
+                  "core"
+                ],
+                [
+                  "2025.09",
+                  "GLM-4.6",
+                  "使用寒武纪等国产芯片训练，多模态 MoE",
+                  "deep"
+                ],
+                [
+                  "2025.12",
+                  "GLM-4.6V",
+                  "多模态 MoE 混合推理开源",
+                  "deep"
+                ],
+                [
+                  "2026.01.08",
+                  "港交所 IPO",
+                  "中国首家上市的大模型公司，市值超 200 亿港元",
+                  "core"
+                ],
+                [
+                  "2026.02.11",
+                  "GLM-5",
+                  "744B/40B 激活，28.5T tokens 训练，集成 DSA，开源 SOTA",
+                  "core"
+                ]
               ]
             },
             {
               "type": "note",
               "text": "GLM-5 在 ⟦SWE-bench⟧ Verified / Terminal Bench 2.0 等 Agent 编程基准达开源 ⟦SOTA⟧，媲美 Claude Opus 4.5。AutoGLM 手机端 AI Agent 可自主执行超 50 步操作。JPMorgan 2026.02 向投资者推荐智谱股票。"
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.14 月之暗面·Kimi",
@@ -570,24 +999,72 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["时间", "模型", "关键信息"],
+              "headers": [
+                "时间",
+                "模型",
+                "关键信息"
+              ],
               "rows": [
-                ["2025.09-11", "K2 / K2 Thinking", "中国首个万亿参数基座、首个开源 Agentic Model；HLE 超越 GPT-5 系列"],
-                ["2025.12.31", "C 轮融资 5 亿$", "IDG 领投，阿里/腾讯超额认购，估值 43 亿$，现金储备超 100 亿元"],
-                ["2026.01.27", "K2.5", "32B 激活 / 1T 总参（最大开源总参），OpenRouter 多榜单第一"],
-                ["2026(计划)", "K3", "等效 FLOPs 提升至少一个数量级，追平世界前沿"]
+                [
+                  "2025.03",
+                  "Kimi k1.5",
+                  "多模态 RL 推理模型，长上下文 scaling，论文引用量极高",
+                  "deep"
+                ],
+                [
+                  "2025.09",
+                  "K2 / K2 Thinking",
+                  "中国首个万亿参数基座、首个开源 Agentic Model；HLE 超越 GPT-5 系列",
+                  "core"
+                ],
+                [
+                  "2025.12.31",
+                  "C 轮融资 5 亿$",
+                  "IDG 领投，阿里/腾讯超额认购，估值 43 亿$，现金储备超 100 亿元",
+                  "core"
+                ],
+                [
+                  "2026.01.27",
+                  "K2.5",
+                  "32B 激活 / 1T 总参（最大开源总参），OpenRouter 多榜单第一",
+                  "core"
+                ],
+                [
+                  "2026(计划)",
+                  "K3",
+                  "等效 FLOPs 提升至少一个数量级，追平世界前沿",
+                  "deep"
+                ]
               ]
             },
             {
               "type": "stats",
               "items": [
-                {"value": "170%+", "label": "付费用户月增长", "color": "accent"},
-                {"value": "4x", "label": "海外 API 收入增长", "color": "green"},
-                {"value": "16.3%", "label": "市场占有率(2026.02)", "color": "blue"},
-                {"value": "100 亿+", "label": "现金储备(元)", "color": "orange"}
+                {
+                  "value": "170%+",
+                  "label": "付费用户月增长",
+                  "color": "accent"
+                },
+                {
+                  "value": "4x",
+                  "label": "海外 API 收入增长",
+                  "color": "green"
+                },
+                {
+                  "value": "16.3%",
+                  "label": "市场占有率(2026.02)",
+                  "color": "blue"
+                },
+                {
+                  "value": "100 亿+",
+                  "label": "现金储备(元)",
+                  "color": "orange"
+                }
               ]
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.15 MiniMax",
@@ -595,28 +1072,70 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["时间", "事件", "关键信息"],
+              "headers": [
+                "时间",
+                "事件",
+                "关键信息"
+              ],
               "rows": [
-                ["2026.01.09", "港交所上市（00100）", "募资超 6 亿$，估值 461 亿港元，员工仅 385 人"],
-                ["2025-2026", "Talkie/星野", "AI 社交陪伴，Google Play 长期前五，月活 2005 万"],
-                ["2025-2026", "海螺 AI / Hailuo AI", "AI 视频生成，对标 Sora，月活 565 万"],
-                ["2025-2026", "M2.1", "LMArena 排名第四（仅次于 OpenAI / Anthropic / Google）"]
+                [
+                  "2026.01.09",
+                  "港交所上市（00100）",
+                  "募资 54 亿港元(~$7 亿)，首日涨 103%，公众认购超 1837 倍",
+                  "core"
+                ],
+                [
+                  "2025-2026",
+                  "Talkie / 星野",
+                  "AI 社交陪伴，Google Play 长期前五，月活 2005 万",
+                  "core"
+                ],
+                [
+                  "2025-2026",
+                  "海螺 AI / Hailuo AI",
+                  "AI 视频生成，对标 Sora，月活 565 万",
+                  "core"
+                ],
+                [
+                  "2025-2026",
+                  "M2.1",
+                  "LMArena 排名第四（仅次于 OpenAI / Anthropic / Google）",
+                  "deep"
+                ]
               ]
             },
             {
               "type": "stats",
               "items": [
-                {"value": "2.12 亿", "label": "全球累计用户", "color": "accent"},
-                {"value": "70%+", "label": "海外收入占比", "color": "green"},
-                {"value": "200+", "label": "覆盖国家/地区", "color": "blue"},
-                {"value": "385 人", "label": "团队规模", "color": "pink"}
+                {
+                  "value": "2.12 亿",
+                  "label": "全球累计用户",
+                  "color": "accent"
+                },
+                {
+                  "value": "70%+",
+                  "label": "海外收入占比",
+                  "color": "green"
+                },
+                {
+                  "value": "200+",
+                  "label": "覆盖国家/地区",
+                  "color": "blue"
+                },
+                {
+                  "value": "385 人",
+                  "label": "团队规模",
+                  "color": "pink"
+                }
               ]
             },
             {
               "type": "note",
               "text": "中国 AI 极罕见的「墙内开花墙外香」——闫俊杰 2022 年果断出海，用 OpenAI 约 1% 的资金消耗训练出万亿参数模型 + 千万 DAU。硅谷公司 Kilo 已将默认模型切换为 MiniMax M2.1。"
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.16 百度·文心",
@@ -624,19 +1143,45 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["时间", "事件", "关键信息"],
+              "headers": [
+                "时间",
+                "事件",
+                "关键信息"
+              ],
               "rows": [
-                ["2025.03", "文心 4.5 + X1 发布", "免费开放"],
-                ["2025.04", "文心一言全面免费", "含深度搜索等高级功能"],
-                ["2025.06", "文心 4.5 系列开源", "10 款模型，最大 424B ⟦MoE⟧"],
-                ["2026.01", "ERNIE-5.0 正式发布", "原生全模态，超稀疏 ⟦MoE⟧，>2.4T 参数，激活 <3%，基于昆仑芯三代万卡集群训练"]
+                [
+                  "2025.03",
+                  "文心 4.5 + X1 发布",
+                  "免费开放，X1 为百度首款深度推理模型",
+                  "core"
+                ],
+                [
+                  "2025.04",
+                  "文心一言全面免费",
+                  "含深度搜索等高级功能，全面免费化",
+                  "core"
+                ],
+                [
+                  "2025.06",
+                  "文心 4.5 系列开源",
+                  "10 款模型，最大 424B MoE，Apache 2.0 开源",
+                  "deep"
+                ],
+                [
+                  "2026.01",
+                  "ERNIE-5.0 正式发布",
+                  "原生全模态，超稀疏 MoE，>2.4T 参数，激活 <3%，昆仑芯三代训练",
+                  "core"
+                ]
               ]
             },
             {
               "type": "note",
               "text": "截至 2024.11：用户 4.3 亿，日均调用超 15 亿次。ERNIE-5.0 采用统一自回归架构，原生支持文本/图像/视频/音频理解 + 生成。"
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.17 讯飞·星火",
@@ -644,17 +1189,33 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["时间", "模型", "关键信息"],
+              "headers": [
+                "时间",
+                "模型",
+                "关键信息"
+              ],
               "rows": [
-                ["2025.04", "星火 X1 升级", "参数量比同类小一个数量级，效果对标 o1/R1"],
-                ["2025.11", "星火 X1.5", "293B 总参 / 30B 激活 ⟦MoE⟧，推理效率提升 100%，130+ 语种"]
+                [
+                  "2025.04",
+                  "星火 X1 升级",
+                  "参数量比同类小一个数量级，效果对标 o1/R1",
+                  "core"
+                ],
+                [
+                  "2025.11",
+                  "星火 X1.5",
+                  "293B 总参 / 30B 激活 MoE，推理效率提升 100%，130+ 语种",
+                  "core"
+                ]
               ]
             },
             {
               "type": "note",
               "text": "业界唯一全国产算力深度推理模型——基于华为昇腾 AI 芯片 +「飞星一号」算力平台。全球首发非自回归语音大模型架构。开发者总数 968 万，2025 AI 开发者大赛吸引 17 国 36,898 个团队。"
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.18 商汤·日日新",
@@ -662,18 +1223,39 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["时间", "模型", "关键信息"],
+              "headers": [
+                "时间",
+                "模型",
+                "关键信息"
+              ],
               "rows": [
-                ["2025.04", "日日新 V6", "6000 亿参数 ⟦MoE⟧，原生多模态，部分超越 GPT-4.5 / Gemini 2.0 Pro"],
-                ["2025.07", "日日新 V6.5", "图像以本体形式参与推理（非转文本），多数据集超越 Gemini 2.5 Pro"],
-                ["2025.07", "「悟能」具身智能平台", "机器人方向"]
+                [
+                  "2025.04",
+                  "日日新 V6",
+                  "6000 亿参数 MoE，原生多模态，部分超越 GPT-4.5 / Gemini 2.0 Pro",
+                  "core"
+                ],
+                [
+                  "2025.07",
+                  "日日新 V6.5",
+                  "图像以本体形式参与推理（非转文本），多数据集超越 Gemini 2.5 Pro",
+                  "core"
+                ],
+                [
+                  "2025.07",
+                  "「悟能」具身智能平台",
+                  "机器人大模型方向，聚焦具身智能",
+                  "deep"
+                ]
               ]
             },
             {
               "type": "note",
               "text": "2025H1 生成式 AI 收入 18.16 亿元（同比 +72.7%），占总收入 77%。运营总算力超 2.5 万 PetaFLOPS。「小浣熊」系列用户突破 300 万。"
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.19 百川智能",
@@ -681,20 +1263,51 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["时间", "模型", "关键信息"],
+              "headers": [
+                "时间",
+                "模型",
+                "关键信息"
+              ],
               "rows": [
-                ["2025.01", "Baichuan-M1", "深度思考模型"],
-                ["2025.03", "福棠·百川", "全球首个儿科大模型"],
-                ["2025.08", "M2-32B", "HealthBench 开源模型世界第一"],
-                ["2026.01", "M3", "HealthBench 65.1 分全球第一，首次全面超越 GPT-5.2，幻觉率 3.5%"],
-                ["2026.01.22", "M3 Plus", "幻觉率降至 2.6% 全球最低，首创「证据锚定」技术"]
+                [
+                  "2025.01",
+                  "Baichuan-M1",
+                  "深度思考医疗模型，HealthBench 开源 SOTA",
+                  "core"
+                ],
+                [
+                  "2025.03",
+                  "福棠·百川",
+                  "全球首个儿科大模型，获国家药监局审批",
+                  "deep"
+                ],
+                [
+                  "2025.08",
+                  "M2-32B",
+                  "HealthBench 开源模型世界第一",
+                  "core"
+                ],
+                [
+                  "2026.01",
+                  "M3",
+                  "HealthBench 65.1 分全球第一，首次全面超越 GPT-5.2，幻觉率 3.5%",
+                  "core"
+                ],
+                [
+                  "2026.01.22",
+                  "M3 Plus",
+                  "幻觉率降至 2.6% 全球最低，首创「证据锚定」技术",
+                  "deep"
+                ]
               ]
             },
             {
               "type": "note",
               "text": "战略转型：裁撤金融 ToB 团队，停训通用大模型，All-in AI 医疗。「海纳百川」计划：免费开放循证医疗大模型 API 给中国医疗机构，目标 500 万医学工作者使用。"
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.20 阶跃星辰",
@@ -702,19 +1315,45 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["模型", "关键信息"],
+              "headers": [
+                "时间",
+                "模型",
+                "关键信息"
+              ],
               "rows": [
-                ["Step-2", "万亿参数 ⟦MoE⟧ 语言模型，新一代自研 MFA 注意力架构"],
-                ["Step-Video-T2V", "30B 参数，最大开源视频生成模型（204 帧，中英双语）"],
-                ["Step-Audio", "千亿参数端到端语音大模型，超低延迟实时对话"],
-                ["Step1X-Edit", "通用图像编辑模型，11 类高频编辑任务"]
+                [
+                  "2025.01",
+                  "Step-Video-T2V",
+                  "30B 参数，最大开源视频生成模型（204 帧，中英双语）",
+                  "core"
+                ],
+                [
+                  "2025.03",
+                  "Step-2",
+                  "万亿参数 MoE 语言模型，新一代自研 MFA 注意力架构",
+                  "core"
+                ],
+                [
+                  "2025.03",
+                  "Step-Audio",
+                  "千亿参数端到端语音大模型，超低延迟实时对话",
+                  "deep"
+                ],
+                [
+                  "2025.06",
+                  "Step1X-Edit",
+                  "通用图像编辑模型，11 类高频编辑任务，开源",
+                  "deep"
+                ]
               ]
             },
             {
               "type": "note",
               "text": "主打多模态（视频/语音/图像编辑），差异化于纯文本竞争。"
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         },
         {
           "title": "1.21 其他中国大模型",
@@ -722,15 +1361,41 @@
             {
               "type": "table",
               "subtitle": null,
-              "headers": ["公司", "时间", "关键事件"],
+              "headers": [
+                "公司",
+                "时间",
+                "关键事件"
+              ],
               "rows": [
-                ["腾讯·混元", "2025.12", "HY2.0：⟦MoE⟧ 406B-A32B，发布三天调用 1.2 亿次"],
-                ["华为·盘古", "2025.06", "盘古 5.5：五大基础模型，旗舰 Ultra 7180 亿参数"],
-                ["小红书", "2025.06", "dots.llm1：1420 亿参数 ⟦MoE⟧，中文 C-Eval 92.2 超越 DeepSeek-V3"],
-                ["零一万物", "2025.03", "宣布停止大模型预训练——DeepSeek 冲击波标志性事件"]
+                [
+                  "腾讯·混元",
+                  "2025.12.05",
+                  "HY2.0：MoE 406B-A32B，发布三天调用 1.2 亿次",
+                  "core"
+                ],
+                [
+                  "华为·盘古",
+                  "2025.06",
+                  "盘古 5.5：五大基础模型，旗舰 Ultra 7180 亿参数",
+                  "core"
+                ],
+                [
+                  "小红书",
+                  "2025.06",
+                  "dots.llm1：1420 亿参数 MoE，中文 C-Eval 92.2 超越 DeepSeek-V3",
+                  "deep"
+                ],
+                [
+                  "零一万物",
+                  "2025.03",
+                  "宣布停止大模型预训练——DeepSeek 冲击波标志性事件",
+                  "core"
+                ]
               ]
             }
-          ]
+          ],
+          "group": "china",
+          "groupLabel": "🇨🇳 中国"
         }
       ]
     },
@@ -777,7 +1442,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "capability",
+          "groupLabel": "能力创新"
         },
         {
           "title": "2.2 Transformer 替代架构",
@@ -860,7 +1527,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "capability",
+          "groupLabel": "能力创新"
         },
         {
           "title": "2.3 新型注意力机制",
@@ -896,7 +1565,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "capability",
+          "groupLabel": "能力创新"
         },
         {
           "title": "2.4 推理时扩展（Test-Time Compute Scaling）",
@@ -937,7 +1608,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "capability",
+          "groupLabel": "能力创新"
         },
         {
           "title": "2.5 训练方法突破",
@@ -1002,7 +1675,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "capability",
+          "groupLabel": "能力创新"
         },
         {
           "title": "2.6 长上下文处理",
@@ -1047,7 +1722,9 @@
               "type": "note",
               "text": "关键发现：宣传上下文窗口与实际可用性能间存在显著差距。未来方向从\"扩大窗口\"转向\"提高窗口内检索和推理质量\"。"
             }
-          ]
+          ],
+          "group": "capability",
+          "groupLabel": "能力创新"
         },
         {
           "title": "2.7 World Models",
@@ -1088,7 +1765,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "capability",
+          "groupLabel": "能力创新"
         },
         {
           "title": "2.8 硬件突破",
@@ -1155,7 +1834,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "infra",
+          "groupLabel": "硬件与评测"
         },
         {
           "title": "2.9 重要学术会议",
@@ -1248,7 +1929,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "infra",
+          "groupLabel": "硬件与评测"
         },
         {
           "title": "2.10 AI 能力测评体系",
@@ -1299,7 +1982,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "infra",
+          "groupLabel": "硬件与评测"
         }
       ]
     },
@@ -1377,7 +2062,9 @@
                 }
               ]
             }
-          ]
+          ],
+          "group": "protocol",
+          "groupLabel": "协议层"
         },
         {
           "title": "3.2 A2A（Agent-to-Agent Protocol）",
@@ -1408,7 +2095,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "protocol",
+          "groupLabel": "协议层"
         },
         {
           "title": "3.3 其他 Agent 协议",
@@ -1459,7 +2148,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "protocol",
+          "groupLabel": "协议层"
         },
         {
           "title": "3.4 治理基金会",
@@ -1486,7 +2177,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "governance",
+          "groupLabel": "治理与架构"
         },
         {
           "title": "3.5 协议生态分层图",
@@ -1495,7 +2188,9 @@
               "type": "diagram",
               "text": "┌─────────────────────────────────────────────────────────┐\n│                    用户 / 前端应用                        │\n├─────────────────────────────────────────────────────────┤\n│  AG-UI (Agent↔用户)  │  A2UI (生成式 UI)                │\n│  MCP Apps (交互式 UI 扩展)                               │\n├─────────────────────────────────────────────────────────┤\n│                    Agent 编排层                           │\n│  LangGraph │ CrewAI │ MS Agent Framework                │\n│  OpenAI Agents SDK │ Claude Code Skills │ AGENTS.md     │\n├─────────────────────────────────────────────────────────┤\n│                  Agent 间通信                             │\n│  A2A (任务协作，含原 ACP)                                │\n├─────────────────────────────────────────────────────────┤\n│                  Agent 发现与身份                         │\n│  ANP (发现/身份/DID)                                     │\n├─────────────────────────────────────────────────────────┤\n│                 Agent ↔ 工具/数据                         │\n│  MCP (上下文协议)                                        │\n├─────────────────────────────────────────────────────────┤\n│                    商业/支付协议                          │\n│  UCP (通用商务) │ AP2 (Agent 支付)                       │\n├─────────────────────────────────────────────────────────┤\n│                    治理 / 基金会                          │\n│  AAIF (MCP+Goose+AGENTS.md) │ LF AI&Data (A2A)         │\n└─────────────────────────────────────────────────────────┘"
             }
-          ]
+          ],
+          "group": "governance",
+          "groupLabel": "治理与架构"
         },
         {
           "title": "3.6 开发者工具与框架",
@@ -1542,7 +2237,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "tools",
+          "groupLabel": "工具与标准"
         },
         {
           "title": "3.7 推理框架与部署生态",
@@ -1577,7 +2274,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "tools",
+          "groupLabel": "工具与标准"
         },
         {
           "title": "3.8 内容溯源与水印标准",
@@ -1604,7 +2303,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "tools",
+          "groupLabel": "工具与标准"
         }
       ]
     },
@@ -1645,7 +2346,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "regulation",
+          "groupLabel": "监管框架"
         },
         {
           "title": "4.2 美国州法律",
@@ -1686,7 +2389,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "regulation",
+          "groupLabel": "监管框架"
         },
         {
           "title": "4.3 欧盟 AI Act 分阶段实施",
@@ -1717,7 +2422,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "regulation",
+          "groupLabel": "监管框架"
         },
         {
           "title": "4.4 中国 AI 监管",
@@ -1752,7 +2459,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "regulation",
+          "groupLabel": "监管框架"
         },
         {
           "title": "4.5 其他国家/地区",
@@ -1787,7 +2496,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "regulation",
+          "groupLabel": "监管框架"
         },
         {
           "title": "4.6 重大安全事件",
@@ -1822,7 +2533,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "impact",
+          "groupLabel": "安全与社会影响"
         },
         {
           "title": "4.7 AI 版权里程碑",
@@ -1857,7 +2570,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "impact",
+          "groupLabel": "安全与社会影响"
         },
         {
           "title": "4.8 AI 伦理与对齐",
@@ -1892,7 +2607,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "impact",
+          "groupLabel": "安全与社会影响"
         },
         {
           "title": "4.9 AI 就业影响",
@@ -1952,7 +2669,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "impact",
+          "groupLabel": "安全与社会影响"
         },
         {
           "title": "4.10 中国 AI 监管补充",
@@ -1960,15 +2679,37 @@
             {
               "type": "table",
               "subtitle": "监管里程碑",
-              "headers": ["时间", "事件", "关键信息"],
+              "headers": [
+                "时间",
+                "事件",
+                "关键信息"
+              ],
               "rows": [
-                ["2025.09.01", "《AI 生成内容标识办法》生效", "显式标识（水印/文字）+ 隐式标识（元数据嵌入），三方责任体系"],
-                ["2025.06.30", "备案制度", "累计 439 款生成式 AI 服务完成备案，236 款应用完成登记"],
-                ["2026.01.01", "新修《网络安全法》生效", "新增 AI 合规条款"],
-                ["2025-2026", "集中执法", "已开展 AI 内容标识集中执法查处"]
+                [
+                  "2025.09.01",
+                  "《AI 生成内容标识办法》生效",
+                  "显式标识（水印/文字）+ 隐式标识（元数据嵌入），三方责任体系"
+                ],
+                [
+                  "2025.06.30",
+                  "备案制度",
+                  "累计 439 款生成式 AI 服务完成备案，236 款应用完成登记"
+                ],
+                [
+                  "2026.01.01",
+                  "新修《网络安全法》生效",
+                  "新增 AI 合规条款"
+                ],
+                [
+                  "2025-2026",
+                  "集中执法",
+                  "已开展 AI 内容标识集中执法查处"
+                ]
               ]
             }
-          ]
+          ],
+          "group": "impact",
+          "groupLabel": "安全与社会影响"
         }
       ]
     },
@@ -2069,7 +2810,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "product",
+          "groupLabel": "产品与落地"
         },
         {
           "title": "5.2 AI 产品用户生态",
@@ -2115,7 +2858,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "product",
+          "groupLabel": "产品与落地"
         },
         {
           "title": "5.3 人形机器人",
@@ -2167,7 +2912,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "product",
+          "groupLabel": "产品与落地"
         },
         {
           "title": "5.4 AI 行业落地",
@@ -2213,7 +2960,9 @@
               "type": "note",
               "text": "整体：72% 全球公司至少一个领域使用 AI"
             }
-          ]
+          ],
+          "group": "product",
+          "groupLabel": "产品与落地"
         },
         {
           "title": "5.5 市场与资本",
@@ -2326,7 +3075,9 @@
               "type": "note",
               "text": "Jony Ive 的 io 团队并入 OpenAI，目标开发无屏幕 AI 设备（\"第三核心设备\"），预计 2027 年前发布。"
             }
-          ]
+          ],
+          "group": "infra",
+          "groupLabel": "基础设施与地缘"
         },
         {
           "title": "5.6 AI 基础设施与能源",
@@ -2416,7 +3167,9 @@
               "type": "note",
               "text": "核能复兴：AI 的能源需求正在驱动一场\"核能复兴\"——这是 AI 对现实世界最深远的物理影响。"
             }
-          ]
+          ],
+          "group": "infra",
+          "groupLabel": "基础设施与地缘"
         },
         {
           "title": "5.7 中美 AI 芯片博弈",
@@ -2493,7 +3246,9 @@
                 ]
               ]
             }
-          ]
+          ],
+          "group": "infra",
+          "groupLabel": "基础设施与地缘"
         },
         {
           "title": "5.8 华为昇腾 AI 芯片生态",
@@ -2501,29 +3256,67 @@
             {
               "type": "table",
               "subtitle": "当前产品",
-              "headers": ["芯片", "规格", "状态"],
+              "headers": [
+                "芯片",
+                "规格",
+                "状态"
+              ],
               "rows": [
-                ["昇腾 910B", "7nm，约 H100 50% 性能", "大规模出货，均价 ~11 万/片"],
-                ["昇腾 910C", "7nm 双 die 封装，800 TFLOPS FP16，3.2TB/s 带宽", "2025Q1 量产，全年 70-80 万颗"],
-                ["910D（预期）", "5nm，4Die 封装，支持 FP8", "预计 2026Q2-Q3 量产"]
+                [
+                  "昇腾 910B",
+                  "7nm，约 H100 50% 性能",
+                  "大规模出货，均价 ~11 万/片"
+                ],
+                [
+                  "昇腾 910C",
+                  "7nm 双 die 封装，800 TFLOPS FP16，3.2TB/s 带宽",
+                  "2025Q1 量产，全年 70-80 万颗"
+                ],
+                [
+                  "910D（预期）",
+                  "5nm，4Die 封装，支持 FP8",
+                  "预计 2026Q2-Q3 量产"
+                ]
               ]
             },
             {
               "type": "table",
               "subtitle": "下一代路线图",
-              "headers": ["芯片", "时间", "性能"],
+              "headers": [
+                "芯片",
+                "时间",
+                "性能"
+              ],
               "rows": [
-                ["950PR", "2026Q1", "FP8 1PFLOPS，互联带宽 2TB/s（910C 的 2.5 倍）"],
-                ["950DT", "2026Q4", "FP8 2PFLOPS"],
-                ["960", "2027Q4", "FP8 2PFLOPS"],
-                ["970", "2028Q4", "FP8 4PFLOPS"]
+                [
+                  "950PR",
+                  "2026Q1",
+                  "FP8 1PFLOPS，互联带宽 2TB/s（910C 的 2.5 倍）"
+                ],
+                [
+                  "950DT",
+                  "2026Q4",
+                  "FP8 2PFLOPS"
+                ],
+                [
+                  "960",
+                  "2027Q4",
+                  "FP8 2PFLOPS"
+                ],
+                [
+                  "970",
+                  "2028Q4",
+                  "FP8 4PFLOPS"
+                ]
               ]
             },
             {
               "type": "note",
               "text": "2024 年国产芯片市占率 29%，2025 年预计 42%，2026 年预计达 50%。字节跳动国内采购 55 亿美元 AI 芯片，60% 为国产。讯飞数据：昇腾 910B 推理效率从 H100 的 20% 提升至近 80%。"
             }
-          ]
+          ],
+          "group": "infra",
+          "groupLabel": "基础设施与地缘"
         }
       ]
     },

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Cpu, Zap, Link, Shield, Globe, Clock, TrendingUp,
@@ -76,12 +76,18 @@ function getChapterStats(ch) {
 
 /* ────────── Collapsible wrapper for content blocks ────────── */
 
-function CollapsibleBlock({ block, glossary, searchQuery, defaultOpen = true }) {
+function CollapsibleBlock({ block, glossary, searchQuery, defaultOpen = true, detailMode = 'core' }) {
   const [open, setOpen] = useState(defaultOpen)
-  const isLarge = block.type === 'table' && (block.rows?.length || 0) > 8
+
+  const visibleRowCount = block.type === 'table' && block.rows
+    ? (detailMode === 'full'
+        ? block.rows.length
+        : block.rows.filter(row => row.length < 4 || row[3] !== 'deep').length)
+    : 0
+  const isLarge = visibleRowCount > 8
 
   if (!isLarge) {
-    return <ContentBlock block={block} glossary={glossary} searchQuery={searchQuery} />
+    return <ContentBlock block={block} glossary={glossary} searchQuery={searchQuery} detailMode={detailMode} />
   }
 
   return (
@@ -91,13 +97,14 @@ function CollapsibleBlock({ block, glossary, searchQuery, defaultOpen = true }) 
         glossary={glossary}
         searchQuery={searchQuery}
         preview={!open}
+        detailMode={detailMode}
       />
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1 text-xs text-accent hover:text-accent/80 mt-2 transition-colors"
       >
         {open ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
-        {open ? '收起' : `展开全部 ${block.rows.length} 行`}
+        {open ? '收起' : `展开全部 ${visibleRowCount} 行`}
       </button>
     </div>
   )
@@ -114,6 +121,7 @@ export default function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [activeSection, setActiveSection] = useState(0)
   const [searchFilter, setSearchFilter] = useState('all')
+  const [detailMode, setDetailMode] = useState('core')
 
   const mainRef = useRef(null)
   const debounceRef = useRef(null)
@@ -340,23 +348,33 @@ export default function App() {
             <>
               <div className="border-t border-border mx-2 my-3" />
               <div className="text-[10px] uppercase tracking-widest text-text-muted px-3 mb-1">Sections</div>
-              {currentChapter.sections.map((sec, si) => (
-                <button
-                  key={si}
-                  onClick={() => {
-                    const el = sectionRefs.current[si]
-                    el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }}
-                  className={`
-                    w-full text-left px-3 py-1.5 rounded-md mb-0.5 text-xs transition-all duration-200 truncate
-                    ${activeSection === si
-                      ? 'text-accent bg-accent-dim'
-                      : 'text-text-muted hover:text-text-dim hover:bg-white/[0.03]'}
-                  `}
-                  aria-current={activeSection === si ? 'true' : undefined}
-                >
-                  {sec.title}
-                </button>
+              {currentChapter.sections.map((sec, si, arr) => (
+                <React.Fragment key={si}>
+                  {si > 0 && sec.group && arr[si - 1].group && sec.group !== arr[si - 1].group && (
+                    <div className="flex items-center gap-2 px-3 pt-2.5 pb-1">
+                      <div className="flex-1 h-px bg-gradient-to-r from-accent/30 to-transparent" />
+                      <span className="text-[9px] tracking-wider text-accent/50 whitespace-nowrap">
+                        {sec.groupLabel}
+                      </span>
+                      <div className="flex-1 h-px bg-gradient-to-l from-accent/30 to-transparent" />
+                    </div>
+                  )}
+                  <button
+                    onClick={() => {
+                      const el = sectionRefs.current[si]
+                      el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }}
+                    className={`
+                      w-full text-left px-3 py-1.5 rounded-md mb-0.5 text-xs transition-all duration-200 truncate
+                      ${activeSection === si
+                        ? 'text-accent bg-accent-dim'
+                        : 'text-text-muted hover:text-text-dim hover:bg-white/[0.03]'}
+                    `}
+                    aria-current={activeSection === si ? 'true' : undefined}
+                  >
+                    {sec.title}
+                  </button>
+                </React.Fragment>
               ))}
             </>
           )}
@@ -459,11 +477,34 @@ export default function App() {
             </span>
           )}
 
-          {/* View mode indicator */}
+          {/* View mode indicator + Detail toggle */}
           {isInChapter && (
-            <div className="hidden md:flex items-center gap-1 text-text-muted">
-              <BookOpen size={14} className="text-accent" />
-              <span className="text-xs">阅读模式</span>
+            <div className="hidden sm:flex items-center gap-3 text-text-muted">
+              <div className="flex items-center gap-1">
+                <BookOpen size={14} className="text-accent" />
+                <span className="text-xs">阅读模式</span>
+              </div>
+              <div
+                className="flex items-center rounded-full overflow-hidden"
+                style={{ background: 'var(--color-card)', border: '1px solid var(--color-border)' }}
+              >
+                <button
+                  onClick={() => setDetailMode('core')}
+                  className={`text-xs px-2.5 py-1 transition-all duration-200 ${
+                    detailMode === 'core' ? 'bg-accent/20 text-accent font-medium' : 'text-text-muted hover:text-text'
+                  }`}
+                >
+                  精简
+                </button>
+                <button
+                  onClick={() => setDetailMode('full')}
+                  className={`text-xs px-2.5 py-1 transition-all duration-200 ${
+                    detailMode === 'full' ? 'bg-accent/20 text-accent font-medium' : 'text-text-muted hover:text-text'
+                  }`}
+                >
+                  完整
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -712,33 +753,50 @@ export default function App() {
 
                     {/* Section quick-jump pills */}
                     {currentChapter.sections.length > 1 && (
-                      <div className="flex flex-wrap gap-2">
-                        {currentChapter.sections.map((sec, si) => (
-                          <button
-                            key={si}
-                            onClick={() => {
-                              sectionRefs.current[si]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                            }}
-                            className={`text-xs px-3 py-1.5 rounded-full border transition-all duration-200
-                              ${activeSection === si
-                                ? 'border-accent/60 text-accent bg-accent-dim'
-                                : 'border-border text-text-dim hover:border-accent/40 hover:text-accent hover:bg-accent-dim'}`}
-                          >
-                            {sec.title}
-                          </button>
+                      <div className="flex flex-wrap gap-2 items-center">
+                        {currentChapter.sections.map((sec, si, arr) => (
+                          <React.Fragment key={si}>
+                            {si > 0 && sec.group && arr[si - 1].group && sec.group !== arr[si - 1].group && (
+                              <div className="flex items-center gap-1.5 px-1">
+                                <div className="w-px h-4 bg-accent/30" />
+                                <span className="text-[9px] text-accent/50">{sec.groupLabel}</span>
+                                <div className="w-px h-4 bg-accent/30" />
+                              </div>
+                            )}
+                            <button
+                              onClick={() => {
+                                sectionRefs.current[si]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                              }}
+                              className={`text-xs px-3 py-1.5 rounded-full border transition-all duration-200
+                                ${activeSection === si
+                                  ? 'border-accent/60 text-accent bg-accent-dim'
+                                  : 'border-border text-text-dim hover:border-accent/40 hover:text-accent hover:bg-accent-dim'}`}
+                            >
+                              {sec.title}
+                            </button>
+                          </React.Fragment>
                         ))}
                       </div>
                     )}
                   </div>
 
                   {/* Sections */}
-                  {currentChapter.sections.map((sec, si) => (
-                    <div
-                      key={si}
-                      ref={el => { sectionRefs.current[si] = el }}
-                      data-si={si}
-                      className="mb-10 scroll-mt-20"
-                    >
+                  {currentChapter.sections.map((sec, si, arr) => (
+                    <React.Fragment key={si}>
+                      {si > 0 && sec.group && arr[si - 1].group && sec.group !== arr[si - 1].group && (
+                        <div className="my-12 flex items-center gap-4">
+                          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+                          <span className="text-xs tracking-widest text-accent/60 font-heading whitespace-nowrap">
+                            {sec.groupLabel}
+                          </span>
+                          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+                        </div>
+                      )}
+                      <div
+                        ref={el => { sectionRefs.current[si] = el }}
+                        data-si={si}
+                        className="mb-10 scroll-mt-20"
+                      >
                       <motion.h3
                         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
                         className="text-base font-semibold mb-4 pb-2 border-b border-border text-text-dim font-heading flex items-center gap-2"
@@ -754,10 +812,11 @@ export default function App() {
                       </motion.h3>
                       <div className="space-y-4">
                         {sec.content.map((block, bi) => (
-                          <CollapsibleBlock key={bi} block={block} glossary={glossary} searchQuery="" />
+                          <CollapsibleBlock key={bi} block={block} glossary={glossary} searchQuery="" detailMode={detailMode} />
                         ))}
                       </div>
                     </div>
+                    </React.Fragment>
                   ))}
 
                   {/* Prev / Next */}

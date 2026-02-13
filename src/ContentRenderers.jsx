@@ -388,11 +388,25 @@ export function DiagramRenderer({ data, searchQuery }) {
   )
 }
 
-export function ContentBlock({ block, glossary, searchQuery, preview = false }) {
+export function ContentBlock({ block, glossary, searchQuery, preview = false, detailMode = 'core' }) {
+  let data = block
+
+  // For tables: filter by detail level and strip metadata column
+  if (block.type === 'table' && block.rows) {
+    let rows = block.rows
+    if (detailMode !== 'full') {
+      rows = rows.filter(row => row.length < 4 || row[3] !== 'deep')
+    }
+    // Strip metadata column (4th element) for display
+    const headerLen = block.headers?.length || 3
+    rows = rows.map(row => row.length > headerLen ? row.slice(0, headerLen) : row)
+    data = { ...block, rows }
+  }
+
   // In preview mode, truncate large table data
-  const data = preview && block.type === 'table' && block.rows?.length > 3
-    ? { ...block, rows: block.rows.slice(0, 3), _truncated: block.rows.length }
-    : block
+  if (preview && data.type === 'table' && data.rows?.length > 3) {
+    data = { ...data, rows: data.rows.slice(0, 3), _truncated: data.rows.length }
+  }
 
   switch (block.type) {
     case 'table':
