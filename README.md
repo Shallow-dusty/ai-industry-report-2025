@@ -1,16 +1,247 @@
-# React + Vite
+# PRISM.INTEL | 2025-2026 AI 行业全景战略研判
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 涵盖 2025-2026 年 AI 行业关键数据、模型竞赛、协议标准、安全法规、产业投资和战略趋势的全景式研究报告。
 
-Currently, two official plugins are available:
+## 线上地址
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| 环境 | URL |
+|------|-----|
+| Cloudflare Pages 默认 | `https://ai-industry-report.pages.dev` |
+| 自定义域名 | `https://report.hyper-dusty.cloud` |
 
-## React Compiler
+## 技术栈
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| 技术 | 版本 | 用途 |
+|------|------|------|
+| React | 19 | UI 框架 |
+| Vite | 7.3.1 | 构建工具 |
+| Tailwind CSS | v4 | 样式（通过 `@tailwindcss/vite` 插件） |
+| Framer Motion | 12 | 动画 |
+| lucide-react | — | 图标库 |
+| Inter Variable | — | 正文字体 |
+| Space Grotesk | — | 标题字体（科技感） |
+| Noto Sans SC | — | 中文优化字体 |
 
-## Expanding the ESLint configuration
+## 部署配置
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**平台**: Cloudflare Pages
+
+**部署命令**:
+```bash
+wrangler pages deploy dist/ --project-name ai-industry-report
+```
+
+**Cloudflare 账号信息**:
+- Account ID: `9fc645bbc231cd2966c748c09bb72933`
+- Zone (hyper-dusty.cloud): `0b18e7c2a9b25ff696495332d58da542`
+
+**SPA 路由**: `public/_redirects` 文件配置 `/ /app 200`，确保所有路径回退到 `app.html`。
+
+> **注意**: GitHub Pages 已废弃，相关工作流文件已删除。
+
+## 构建系统
+
+### 入口文件
+
+**`app.html`** 是 React 应用的入口（不是 `index.html`）。在 `vite.config.js` 中配置：
+
+```js
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  base: './',                    // 相对路径，兼容子目录部署
+  server: { open: '/app.html' },
+  build: {
+    rollupOptions: {
+      input: 'app.html'         // 入口是 app.html
+    }
+  }
+})
+```
+
+### 构建产物
+
+```bash
+npm run build    # 输出到 dist/
+```
+
+`report.json` 在构建时被 Vite 内联到 JS bundle 中（通过 `import reportData from './data/report.json'`），不作为独立文件部署。
+
+### 遗留文件说明
+
+| 文件 | 说明 |
+|------|------|
+| `index.html` | **遗留的静态 HTML 版本**（1055 行），包含内联 CSS 和 JS 搜索功能。不是 React 应用入口，保留仅供参考。 |
+| `rebuild_final.py` / `rebuild_v2.py` | 早期 Python 重建脚本，已不再使用 |
+| `scripts/extract_data.py` | 早期数据提取脚本，已不再使用 |
+| ~~`.github/workflows/static.yml`~~ | 已删除 — 原 GitHub Pages 部署工作流（部署已迁移到 Cloudflare Pages） |
+
+## 项目架构
+
+```
+07.AI-Industry-Report/
+├── app.html                    # React 应用入口 (Vite 入口)
+├── vite.config.js              # Vite 构建配置
+├── package.json                # 依赖与脚本
+├── eslint.config.js            # ESLint 配置
+├── public/
+│   ├── _redirects              # Cloudflare Pages SPA 路由规则
+│   └── favicon.svg             # 站点图标
+├── src/
+│   ├── main.jsx                # React 根渲染 (#root)
+│   ├── App.jsx                 # 主应用组件 (925 行)
+│   │                             - Dashboard 总览 (Bento Grid)
+│   │                             - 章节阅读器 (Reader View)
+│   │                             - 全局搜索 (Cmd+K)
+│   │                             - 侧边栏导航 + Section TOC
+│   │                             - 精简/完整 详情模式切换
+│   ├── ContentRenderers.jsx    # 内容渲染器 (437 行)
+│   │                             - TimelineTable (时间线)
+│   │                             - WideTimelineTable (宽时间线)
+│   │                             - CardTable (卡片表格)
+│   │                             - StatsRenderer / TrendsRenderer
+│   │                             - CardsRenderer / NoteRenderer
+│   │                             - DiagramRenderer
+│   │                             - ContentBlock (入口, 含 detail 过滤)
+│   ├── GlossaryTooltip.jsx     # 术语提示 + 搜索高亮
+│   ├── theme.js                # 颜色映射 (colorMap / colorBgMap)
+│   ├── index.css               # Tailwind v4 主题 + 自定义样式
+│   │                             - CSS 变量 (@theme)
+│   │                             - glassmorphism (.glass / .glass-elevated)
+│   │                             - 氛围光球 (.ambient-orb)
+│   │                             - 闪光边框 (.shimmer-border)
+│   │                             - 渐变文字 (.glow-text)
+│   │                             - prefers-reduced-motion 支持
+│   └── data/
+│       └── report.json         # 报告数据 (~3700 行)
+│                                 - chapters[]: 7 个章节
+│                                 - glossary{}: 术语表
+├── scripts/
+│   ├── update-ch1-data.mjs     # 更新 Ch1 1.1-1.4 (OpenAI/Google/Anthropic/xAI)
+│   └── update-ch1-data-part2.mjs # 更新 Ch1 1.5-1.21 (Meta 到其他中国大模型)
+└── dist/                       # 构建输出 (部署目录)
+    ├── app.html
+    ├── favicon.svg
+    ├── _redirects
+    └── assets/
+        ├── app-{hash}.js       # 含 report.json 内联数据
+        └── app-{hash}.css
+```
+
+## 数据管道
+
+### report.json 结构
+
+```
+{
+  "chapters": [
+    {
+      "id": "ch1",
+      "title": "大模型发布全景时间线",
+      "sections": [
+        {
+          "title": "1.1 OpenAI",
+          "group": "global",           // 可选: 分组标识
+          "groupLabel": "中国大模型",   // 可选: 分组显示名
+          "content": [
+            {
+              "type": "table",          // table | stats | trends | cards | note | diagram
+              "headers": ["时间", "模型", "关键信息"],
+              "subtitle": "...",        // 可选
+              "rows": [
+                ["2025.01.31", "o3-mini", "高效推理模型...", "core"]
+                //                                          ↑ 第4元素: detail marker
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "glossary": {
+    "SWE-bench": "软件工程基准测试...",
+    "GPQA": "研究生级别问答基准..."
+  }
+}
+```
+
+### Detail 过滤系统
+
+表格行的第 4 个元素是 detail marker：
+- `"core"` — 精简模式和完整模式都显示
+- `"deep"` — 仅完整模式显示
+
+用户在阅读视图中通过"精简/完整"切换按钮控制。过滤逻辑在 `ContentRenderers.jsx` 的 `ContentBlock` 中：
+
+```jsx
+if (detailMode !== 'full') {
+  rows = rows.filter(row => row.length < 4 || row[3] !== 'deep')
+}
+// 渲染前移除 metadata 列
+rows = rows.map(row => row.length > headerLen ? row.slice(0, headerLen) : row)
+```
+
+### 术语标记
+
+在数据文本中用 `⟦术语名⟧` 标记（全角方括号），`GlossaryTooltip` 组件会将其渲染为带 tooltip 的术语提示。
+
+### 数据更新流程
+
+1. 编辑 `scripts/update-ch1-data.mjs` 或 `update-ch1-data-part2.mjs`
+2. 运行脚本写入 `report.json`:
+   ```bash
+   node scripts/update-ch1-data.mjs
+   node scripts/update-ch1-data-part2.mjs
+   ```
+3. 构建:
+   ```bash
+   npm run build
+   ```
+4. 部署:
+   ```bash
+   wrangler pages deploy dist/ --project-name ai-industry-report
+   ```
+
+## UI 设计系统
+
+### 暗色主题
+
+- 背景: `#050508` (bg) → `#0a0a10` (surface) → `#0f0f16` (card)
+- 主色: `#6366f1` (indigo/accent)
+- 辅色: green `#22c55e` / blue `#3b82f6` / orange `#f97316` / pink `#ec4899`
+
+### 视觉效果
+
+- **Glassmorphism**: `.glass` / `.glass-elevated` 毛玻璃效果
+- **氛围光球**: Dashboard Hero 区域的浮动渐变光球
+- **闪光边框**: `.shimmer-border` 卡片 hover 时渐变流动边框
+- **渐变文字**: `.glow-text` 标题渐变发光效果
+- **无障碍**: `prefers-reduced-motion` 支持，禁用所有动画
+
+### 表格渲染逻辑
+
+| 条件 | 渲染器 | 效果 |
+|------|--------|------|
+| 首列是时间 + 列数 ≤ 3 | `TimelineTable` | 竖直时间线 |
+| 首列是时间 + 列数 ≥ 4 | `WideTimelineTable` | 多轨道宽时间线 |
+| 其他 | `CardTable` | 卡片列表 |
+
+## 开发命令
+
+```bash
+npm install        # 安装依赖
+npm run dev        # 本地开发 (http://localhost:5173/app.html)
+npm run build      # 生产构建
+npm run preview    # 预览构建产物
+```
+
+## 章节目录
+
+| ID | 章节 |
+|----|------|
+| ch1 | 大模型发布全景时间线 (21 小节, 160+ 数据行) |
+| ch2 | AI Agent 与工具生态 |
+| ch3 | 协议与标准 |
+| ch4 | 安全与法规 |
+| ch5 | 全球化与竞争格局 |
+| ch6 | 产业投资与商业化 |
+| ch7 | 战略趋势与展望 |
