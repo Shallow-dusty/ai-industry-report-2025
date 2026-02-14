@@ -35,7 +35,7 @@ wrangler pages deploy dist/ --project-name ai-industry-report
 - Account ID: `9fc645bbc231cd2966c748c09bb72933`
 - Zone (hyper-dusty.cloud): `0b18e7c2a9b25ff696495332d58da542`
 
-**SPA 路由**: `public/_redirects` 文件配置 `/ /app 200`，确保所有路径回退到 `app.html`。
+**SPA 路由**: `public/_redirects` 文件配置 `/* /app.html 200`，确保所有路径（含子路由刷新）回退到 `app.html`。
 
 > **注意**: GitHub Pages 已废弃，相关工作流文件已删除。
 
