@@ -35,7 +35,7 @@ wrangler pages deploy dist/ --project-name ai-industry-report
 - Account ID: `9fc645bbc231cd2966c748c09bb72933`
 - Zone (hyper-dusty.cloud): `0b18e7c2a9b25ff696495332d58da542`
 
-**SPA 路由**: `public/_redirects` 文件配置 `/* /app 200`（不带 `.html` 后缀，因为 CF Pages 会自动 308 去掉 `.html`，带后缀会导致重定向循环）。
+**SPA 路由**: `public/_redirects` 文件配置 `/ /app 200`，将根路径重写到 `app.html`。注意：不可使用 `/*` 通配符，因为 CF Pages 的 200 重写会覆盖静态资源（JS/CSS 会被重写为 HTML 导致白屏）。当前应用不使用客户端路由，无需通配符。
 
 > **注意**: GitHub Pages 已废弃，相关工作流文件已删除。
 
