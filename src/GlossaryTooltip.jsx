@@ -101,7 +101,7 @@ function TermWithTooltip({ term, definition, searchQuery }) {
 }
 
 export function HighlightedText({ text, searchQuery }) {
-  if (!searchQuery || !text) return text
+  if (!searchQuery?.trim() || !text) return text
 
   const regex = new RegExp(`(${searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
   const parts = text.split(regex)

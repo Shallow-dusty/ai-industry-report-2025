@@ -168,7 +168,8 @@ export default function App() {
     if (!el) return
     const handleScroll = () => {
       const { scrollTop, scrollHeight, clientHeight } = el
-      setScrollProgress(scrollTop / (scrollHeight - clientHeight) || 0)
+      const max = scrollHeight - clientHeight
+      setScrollProgress(max > 0 ? scrollTop / max : 0)
     }
     el.addEventListener('scroll', handleScroll, { passive: true })
     return () => el.removeEventListener('scroll', handleScroll)

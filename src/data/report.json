@@ -2933,7 +2933,7 @@
                 },
                 {
                   "value": "$131K",
-                  "label": "Optimus 排华成本",
+                  "label": "Optimus 去中国化成本",
                   "color": "orange"
                 }
               ]
@@ -3069,10 +3069,10 @@
                   "2025.09"
                 ],
                 [
-                  "Anthropic（进行中）",
-                  "~200 亿",
-                  "—",
-                  "2026.01"
+                  "Anthropic Series G",
+                  "300 亿",
+                  "3800 亿",
+                  "2026.02"
                 ],
                 [
                   "xAI 多轮",
@@ -3429,7 +3429,7 @@
                 ],
                 [
                   "2025.07",
-                  "—",
+                  "Grok 4/4 Heavy；ChatGPT Agent；Qwen3-Coder",
                   "A2A v0.3",
                   "白宫 AI 行动计划；Grok4 被越狱",
                   "Claude Code ⟦ARR⟧ ~4 亿；Copilot 2000 万用户；ChatGPT ~7 亿 WAU"
@@ -3494,7 +3494,7 @@
       "title": "核心趋势总结",
       "sections": [
         {
-          "title": "7.1 十大趋势",
+          "title": "7.1 十二大趋势",
           "content": [
             {
               "type": "trends",
@@ -3550,12 +3550,12 @@
                   "description": "Phi-4 (14B) 部分超越 DeepSeek-R1 (671B)；Gemma 3 (27B) 2 亿+下载；端侧部署成为主流方向"
                 },
                 {
-                  "num": "8",
+                  "num": 11,
                   "title": "中国 AI 六小虎分化",
                   "description": "智谱/MiniMax 港股 IPO、百川 All-in 医疗、零一万物放弃预训练——行业从百模大战走向专业分化"
                 },
                 {
-                  "num": "9",
+                  "num": 12,
                   "title": "国产算力替代加速",
                   "description": "2026 年国产 AI 芯片市占率预计达 50%。华为昇腾 910C 量产、讯飞全国产算力推理、GLM-4.6 寒武纪训练——国产替代从「可用」走向「好用」"
                 }

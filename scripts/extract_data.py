@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Extract structured data from index.html into JSON for React migration."""
+"""[DEPRECATED] Extract structured data from index.html into JSON for React migration.
+This script was used during the initial migration from static HTML to React.
+It is no longer needed as data is now maintained directly in report.json.
+"""
 
 import json
 import re
+from pathlib import Path
 
 
 def clean_html(text):
@@ -236,7 +240,8 @@ def extract_report(html):
 
 
 def main():
-    with open('/home/shallow/04.AI-Prism/07.AI-Industry-Report/index.html', 'r', encoding='utf-8') as f:
+    script_dir = Path(__file__).resolve().parent.parent
+    with open(script_dir / 'index.html', 'r', encoding='utf-8') as f:
         html = f.read()
 
     chapters, glossary = extract_report(html)
@@ -284,7 +289,7 @@ def main():
         'glossary': glossary
     }
 
-    outpath = '/home/shallow/04.AI-Prism/07.AI-Industry-Report/src/data/report.json'
+    outpath = script_dir / 'src' / 'data' / 'report.json'
     with open(outpath, 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
 
