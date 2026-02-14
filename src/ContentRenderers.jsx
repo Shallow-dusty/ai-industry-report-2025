@@ -253,10 +253,7 @@ export function StatsRenderer({ data, searchQuery }) {
 
 export function TrendsRenderer({ data, glossary, searchQuery }) {
   const { items } = data
-  const trendColors = [
-    'accent', 'green', 'blue', 'orange', 'pink',
-    'accent', 'green', 'blue', 'orange', 'pink'
-  ]
+  const trendColorPalette = ['accent', 'green', 'blue', 'orange', 'pink']
   return (
     <div className="space-y-4">
       {items.map((item, i) => (
@@ -270,22 +267,22 @@ export function TrendsRenderer({ data, glossary, searchQuery }) {
           style={{
             background: 'var(--color-card)',
             border: '1px solid var(--color-border)',
-            borderLeft: `3px solid ${colorMap[trendColors[i]] || colorMap.accent}`
+            borderLeft: `3px solid ${colorMap[trendColorPalette[i % trendColorPalette.length]]}`
           }}
         >
           {/* Subtle glow behind the number */}
           <div
             className="absolute -left-4 top-1/2 -translate-y-1/2 w-20 h-20 rounded-full pointer-events-none"
             style={{
-              background: `radial-gradient(circle, ${colorMap[trendColors[i]] || colorMap.accent}08, transparent 70%)`
+              background: `radial-gradient(circle, ${colorMap[trendColorPalette[i % trendColorPalette.length]]}08, transparent 70%)`
             }}
           />
           <div className="flex items-start gap-4">
             <div
               className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-lg font-black"
               style={{
-                background: colorBgMap[trendColors[i]] || colorBgMap.accent,
-                color: colorMap[trendColors[i]] || colorMap.accent
+                background: colorBgMap[trendColorPalette[i % trendColorPalette.length]],
+                color: colorMap[trendColorPalette[i % trendColorPalette.length]]
               }}
             >
               {item.num}
@@ -307,7 +304,7 @@ export function TrendsRenderer({ data, glossary, searchQuery }) {
 
 export function CardsRenderer({ data, glossary, searchQuery }) {
   const { items } = data
-  const cardColors = ['accent', 'green', 'blue', 'orange', 'pink', 'accent', 'green', 'blue']
+  const cardColorPalette = ['accent', 'green', 'blue', 'orange', 'pink']
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
       {items.map((item, i) => (
@@ -319,12 +316,12 @@ export function CardsRenderer({ data, glossary, searchQuery }) {
           viewport={{ once: true }}
           className="glass rounded-xl p-5 hover:scale-[1.01] transition-all duration-200"
           style={{
-            borderColor: `${colorMap[cardColors[i]] || colorMap.accent}20`
+            borderColor: `${colorMap[cardColorPalette[i % cardColorPalette.length]]}20`
           }}
         >
           <h4
             className="font-bold text-sm mb-2"
-            style={{ color: colorMap[cardColors[i]] || colorMap.accent }}
+            style={{ color: colorMap[cardColorPalette[i % cardColorPalette.length]] }}
           >
             <HighlightedText text={item.title} searchQuery={searchQuery} />
           </h4>
@@ -393,12 +390,12 @@ export function ContentBlock({ block, glossary, searchQuery, preview = false, de
 
   // For tables: filter by detail level and strip metadata column
   if (block.type === 'table' && block.rows) {
+    const headerLen = block.headers?.length || 3
     let rows = block.rows
     if (detailMode !== 'full') {
-      rows = rows.filter(row => row.length < 4 || row[3] !== 'deep')
+      rows = rows.filter(row => row.length <= headerLen || row[headerLen] !== 'deep')
     }
-    // Strip metadata column (4th element) for display
-    const headerLen = block.headers?.length || 3
+    // Strip metadata column for display
     rows = rows.map(row => row.length > headerLen ? row.slice(0, headerLen) : row)
     data = { ...block, rows }
   }
@@ -408,7 +405,7 @@ export function ContentBlock({ block, glossary, searchQuery, preview = false, de
     data = { ...data, rows: data.rows.slice(0, 3), _truncated: data.rows.length }
   }
 
-  switch (block.type) {
+  switch (data.type) {
     case 'table':
       return (
         <>
@@ -421,15 +418,15 @@ export function ContentBlock({ block, glossary, searchQuery, preview = false, de
         </>
       )
     case 'stats':
-      return <StatsRenderer data={block} searchQuery={searchQuery} />
+      return <StatsRenderer data={data} searchQuery={searchQuery} />
     case 'trends':
-      return <TrendsRenderer data={block} glossary={glossary} searchQuery={searchQuery} />
+      return <TrendsRenderer data={data} glossary={glossary} searchQuery={searchQuery} />
     case 'cards':
-      return <CardsRenderer data={block} glossary={glossary} searchQuery={searchQuery} />
+      return <CardsRenderer data={data} glossary={glossary} searchQuery={searchQuery} />
     case 'note':
-      return <NoteRenderer data={block} glossary={glossary} searchQuery={searchQuery} />
+      return <NoteRenderer data={data} glossary={glossary} searchQuery={searchQuery} />
     case 'diagram':
-      return <DiagramRenderer data={block} searchQuery={searchQuery} />
+      return <DiagramRenderer data={data} searchQuery={searchQuery} />
     default:
       return null
   }

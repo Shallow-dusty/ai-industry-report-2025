@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react'
 
 export default function GlossaryTooltip({ text, glossary, searchQuery }) {
   if (!text) return null
@@ -29,7 +29,7 @@ function TermWithTooltip({ term, definition, searchQuery }) {
   const tooltipRef = useRef(null)
 
   // Measure actual tooltip height after render and reposition if needed
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (show && tooltipRef.current && ref.current) {
       const tooltipRect = tooltipRef.current.getBoundingClientRect()
       const termRect = ref.current.getBoundingClientRect()

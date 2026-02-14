@@ -80,9 +80,12 @@ function CollapsibleBlock({ block, glossary, searchQuery, defaultOpen = true, de
   const [open, setOpen] = useState(defaultOpen)
 
   const visibleRowCount = block.type === 'table' && block.rows
-    ? (detailMode === 'full'
-        ? block.rows.length
-        : block.rows.filter(row => row.length < 4 || row[3] !== 'deep').length)
+    ? (() => {
+        const hLen = block.headers?.length || 3
+        return detailMode === 'full'
+          ? block.rows.length
+          : block.rows.filter(row => row.length <= hLen || row[hLen] !== 'deep').length
+      })()
     : 0
   const isLarge = visibleRowCount > 8
 
@@ -159,6 +162,7 @@ export default function App() {
     setActiveView(view)
     setSidebarOpen(false)
     setActiveSection(0)
+    sectionRefs.current = {}
     mainRef.current?.scrollTo({ top: 0 })
   }, [])
 
@@ -253,6 +257,8 @@ export default function App() {
 
   const sidebarW = sidebarCollapsed ? 64 : 280
   const isInChapter = !!currentChapter && !isSearching
+  const ChIcon = currentChapter ? (chapterIcons[currentChapter.id] || Cpu) : Cpu
+  const chColor = currentChapter ? (chapterColors[currentChapter.id] || 'accent') : 'accent'
 
   return (
     <div className="h-screen flex overflow-hidden">
@@ -422,7 +428,7 @@ export default function App() {
         <div
           className="sticky top-0.5 z-20 px-4 md:px-8 py-3 flex items-center gap-3"
           style={{
-            background: 'rgba(5, 5, 8, 0.85)',
+            background: 'color-mix(in srgb, var(--color-bg) 85%, transparent)',
             backdropFilter: 'blur(16px)',
             borderBottom: '1px solid var(--color-border)'
           }}
@@ -717,15 +723,12 @@ export default function App() {
             )}
 
             {/* ────── CHAPTER / READER VIEW ────── */}
-            {isInChapter && (() => {
-              const ChIcon = chapterIcons[currentChapter.id] || Cpu
-              const chColor = chapterColors[currentChapter.id] || 'accent'
-              return (
-                <motion.div
-                  key={activeView}
-                  initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}
-                >
+            {isInChapter && (
+              <motion.div
+                key={activeView}
+                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}
+              >
                   {/* Chapter header */}
                   <div className="mb-8 relative">
                     {/* Decorative gradient bg */}
@@ -858,8 +861,7 @@ export default function App() {
                     <p>PRISM.INTEL | AI Industry Strategic Intelligence Report</p>
                   </div>
                 </motion.div>
-              )
-            })()}
+            )}
           </AnimatePresence>
         </div>
 

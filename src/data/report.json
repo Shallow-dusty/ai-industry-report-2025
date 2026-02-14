@@ -679,7 +679,7 @@
                   "Google",
                   "2025.03.12",
                   "Gemma 3",
-                  "1B/4B/12B/27B 开放模型，多模态+128K 上下文，200M+ 下载",
+                  "开放权重多模态模型（1B-27B），Hugging Face 200M+ 下载，最流行开源模型之一",
                   "core"
                 ],
                 [
@@ -2018,7 +2018,7 @@
                 ],
                 [
                   "ARC-AGI-2",
-                  "测量流体智能（抽象推理），人类平均 60% 而最佳 AI 仅 24%。2025 年 1,455 个团队参赛。四大实验室已在 Model Card 中报告 ARC-AGI 分数"
+                  "测量流体智能（抽象推理），人类平均 60%。Gemini 3 Deep Think 于 2026.02 达到 84.6%，首次大幅超越人类。四大实验室已在 Model Card 中报告 ARC-AGI 分数"
                 ],
                 [
                   "OSWorld",
@@ -2281,7 +2281,7 @@
                 ],
                 [
                   "Windsurf",
-                  "2025.07 被拆分——CEO团队转投Google（24亿人才协议），剩余资产被Cognition AI收购（OpenAI 30 亿收购失败后）"
+                  "AI 原生 IDE（原 Codeium），曾为 Cursor 主要竞争对手。2025.07 被拆分退出市场"
                 ]
               ]
             }
@@ -2744,11 +2744,6 @@
                   "累计 439 款生成式 AI 服务完成备案，236 款应用完成登记"
                 ],
                 [
-                  "2026.01.01",
-                  "新修《网络安全法》生效",
-                  "新增 AI 合规条款"
-                ],
-                [
                   "2025-2026",
                   "集中执法",
                   "已开展 AI 内容标识集中执法查处"
@@ -2806,7 +2801,7 @@
                   "Windsurf",
                   "~100 万用户",
                   "—",
-                  "AI 原生 IDE。2025.07 被拆分——CEO团队转投Google，剩余资产被Cognition AI收购"
+                  "AI 原生 IDE（原 Codeium）。2025.07 被拆分——CEO 团队 24 亿人才协议转投 Google，编辑器资产被 Cognition AI 收购（已停运）"
                 ],
                 [
                   "Devin",
@@ -3103,8 +3098,8 @@
                   "2025.05"
                 ],
                 [
-                  "Windsurf",
-                  "2025.07 被拆分——CEO团队转投Google（24亿人才协议），剩余资产被Cognition AI收购（OpenAI 30 亿收购失败后）",
+                  "Windsurf 拆分",
+                  "Codeium/Windsurf 终局：CEO 团队以 24 亿人才协议加入 Google，编辑器资产被 Cognition AI 收购（此前 OpenAI 30 亿收购报价未成）",
                   "2025.07"
                 ],
                 [
@@ -3576,7 +3571,7 @@
                 },
                 {
                   "value": "8-9亿",
-                  "label": "ChatGPT WAU",
+                  "label": "ChatGPT WAU（年末峰值）",
                   "color": "green"
                 },
                 {
@@ -3664,6 +3659,15 @@
     "SOTA": "业界顶尖水平",
     "GRPO": "DeepSeek 首创的无评论者强化学习算法",
     "Stargate": "5000亿美元超算基建项目",
-    "ARR": "年度经常性收入"
+    "ARR": "年度经常性收入",
+    "MCP": "Model Context Protocol，Anthropic 提出的模型上下文协议，让 AI 连接外部工具和数据",
+    "A2A": "Agent-to-Agent，Google 提出的智能体间通信协议",
+    "WAU": "周活跃用户数（Weekly Active Users）",
+    "MAU": "月活跃用户数（Monthly Active Users）",
+    "RAG": "检索增强生成，让模型结合外部知识库回答问题",
+    "CoT": "Chain of Thought，思维链推理，让模型逐步推理得出答案",
+    "PBC": "公益公司（Public Benefit Corporation），兼顾盈利与社会使命的公司结构",
+    "RL": "强化学习（Reinforcement Learning），通过奖励信号训练模型的方法",
+    "HLE": "Humanity's Last Exam，人类最后的考试，衡量 AI 专家级知识的基准"
   }
 }
