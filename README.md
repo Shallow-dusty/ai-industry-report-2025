@@ -66,15 +66,6 @@ npm run build    # 输出到 dist/
 
 `report.json` 在构建时被 Vite 内联到 JS bundle 中（通过 `import reportData from './data/report.json'`），不作为独立文件部署。
 
-### 遗留文件说明
-
-| 文件 | 说明 |
-|------|------|
-| `index.html` | **遗留的静态 HTML 版本**（1055 行），包含内联 CSS 和 JS 搜索功能。不是 React 应用入口，保留仅供参考。 |
-| `rebuild_final.py` / `rebuild_v2.py` | 早期 Python 重建脚本，已不再使用 |
-| `scripts/extract_data.py` | 早期数据提取脚本，已不再使用 |
-| ~~`.github/workflows/static.yml`~~ | 已删除 — 原 GitHub Pages 部署工作流（部署已迁移到 Cloudflare Pages） |
-
 ## 项目架构
 
 ```
@@ -88,13 +79,13 @@ npm run build    # 输出到 dist/
 │   └── favicon.svg             # 站点图标
 ├── src/
 │   ├── main.jsx                # React 根渲染 (#root)
-│   ├── App.jsx                 # 主应用组件 (925 行)
+│   ├── App.jsx                 # 主应用组件 (~930 行)
 │   │                             - Dashboard 总览 (Bento Grid)
 │   │                             - 章节阅读器 (Reader View)
 │   │                             - 全局搜索 (Cmd+K)
 │   │                             - 侧边栏导航 + Section TOC
 │   │                             - 精简/完整 详情模式切换
-│   ├── ContentRenderers.jsx    # 内容渲染器 (437 行)
+│   ├── ContentRenderers.jsx    # 内容渲染器 (~430 行)
 │   │                             - TimelineTable (时间线)
 │   │                             - WideTimelineTable (宽时间线)
 │   │                             - CardTable (卡片表格)
@@ -114,11 +105,11 @@ npm run build    # 输出到 dist/
 │   └── data/
 │       └── report.json         # 报告数据 (~3700 行)
 │                                 - chapters[]: 7 个章节
-│                                 - glossary{}: 术语表
+│                                 - glossary{}: 术语表 (17 个术语)
 ├── scripts/
 │   ├── update-ch1-data.mjs     # 更新 Ch1 1.1-1.4 (OpenAI/Google/Anthropic/xAI)
 │   └── update-ch1-data-part2.mjs # 更新 Ch1 1.5-1.21 (Meta 到其他中国大模型)
-└── dist/                       # 构建输出 (部署目录)
+└── dist/                       # 构建输出 (部署目录, .gitignore 已排除)
     ├── app.html
     ├── favicon.svg
     ├── _redirects
@@ -158,27 +149,31 @@ npm run build    # 输出到 dist/
     }
   ],
   "glossary": {
-    "SWE-bench": "软件工程基准测试...",
-    "GPQA": "研究生级别问答基准..."
+    "SWE-bench": "衡量 AI 解决真实 GitHub Issue 的基准",
+    "MCP": "Model Context Protocol...",
+    // ... 共 17 个术语
   }
 }
 ```
 
 ### Detail 过滤系统
 
-表格行的第 4 个元素是 detail marker：
+表格行的最后一个元素（位于 `headers.length` 索引处）是 detail marker：
 - `"core"` — 精简模式和完整模式都显示
 - `"deep"` — 仅完整模式显示
 
 用户在阅读视图中通过"精简/完整"切换按钮控制。过滤逻辑在 `ContentRenderers.jsx` 的 `ContentBlock` 中：
 
 ```jsx
+const headerLen = block.headers?.length || 3
 if (detailMode !== 'full') {
-  rows = rows.filter(row => row.length < 4 || row[3] !== 'deep')
+  rows = rows.filter(row => row.length <= headerLen || row[headerLen] !== 'deep')
 }
 // 渲染前移除 metadata 列
 rows = rows.map(row => row.length > headerLen ? row.slice(0, headerLen) : row)
 ```
+
+> **注意**: detail marker 的位置由 `headerLen` 动态决定，而非固定在 `row[3]`。对于 4 列表头的表格，marker 在 `row[4]`。
 
 ### 术语标记
 
